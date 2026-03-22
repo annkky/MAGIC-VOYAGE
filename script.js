@@ -89,70 +89,7 @@
     counterObserver.observe(c);
   });
 
-  // === TESTIMONIALS SLIDER ===
-  var track = document.getElementById('testimonialTrack');
-  var dots = document.querySelectorAll('.testimonials__dot');
-  var currentSlide = 0;
-  var totalSlides = dots.length;
-  var autoplayInterval;
-
-  function goToSlide(index) {
-    currentSlide = index;
-    track.style.transform = 'translateX(-' + (index * 100) + '%)';
-    dots.forEach(function(dot, i) {
-      dot.classList.toggle('active', i === index);
-      dot.setAttribute('aria-selected', i === index);
-    });
-  }
-
-  function nextSlide() {
-    goToSlide((currentSlide + 1) % totalSlides);
-  }
-
-  function startAutoplay() {
-    autoplayInterval = setInterval(nextSlide, 5000);
-  }
-
-  function stopAutoplay() {
-    clearInterval(autoplayInterval);
-  }
-
-  dots.forEach(function(dot) {
-    dot.addEventListener('click', function() {
-      var slideIndex = parseInt(this.getAttribute('data-slide'), 10);
-      goToSlide(slideIndex);
-      stopAutoplay();
-      startAutoplay();
-    });
-  });
-
-  var slider = document.getElementById('testimonialSlider');
-  slider.addEventListener('mouseenter', stopAutoplay);
-  slider.addEventListener('mouseleave', startAutoplay);
-
-  startAutoplay();
-
-  // Touch swipe support
-  var touchStartX = 0;
-  var touchEndX = 0;
-
-  slider.addEventListener('touchstart', function(e) {
-    touchStartX = e.changedTouches[0].screenX;
-    stopAutoplay();
-  }, { passive: true });
-
-  slider.addEventListener('touchend', function(e) {
-    touchEndX = e.changedTouches[0].screenX;
-    var diffX = touchStartX - touchEndX;
-    if (Math.abs(diffX) > 50) {
-      if (diffX > 0) {
-        goToSlide((currentSlide + 1) % totalSlides);
-      } else {
-        goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
-      }
-    }
-    startAutoplay();
-  }, { passive: true });
+  // === TESTIMONIALS (card grid — no JS needed) ===
 
   // === FAQ ACCORDION ===
   var faqItems = document.querySelectorAll('.faq-item__question');
