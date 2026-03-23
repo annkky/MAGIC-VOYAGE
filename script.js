@@ -24,6 +24,7 @@
     burger.classList.toggle('active');
     burger.setAttribute('aria-expanded', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
+    document.documentElement.style.overflow = isOpen ? 'hidden' : '';
   }
 
   burger.addEventListener('click', toggleMenu);
