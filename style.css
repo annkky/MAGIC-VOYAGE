@@ -982,9 +982,10 @@ ul, ol {
 }
 
 @media (max-width: 1024px) {
-  .dest-card__btn {
+  .dest-card .dest-card__btn {
     opacity: 1;
     transform: translateY(0);
+    transition: background 0.3s ease;
   }
 
   .dest-card:hover .dest-card__overlay {
