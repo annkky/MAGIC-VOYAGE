@@ -930,6 +930,57 @@ ul, ol {
   font-weight: 700;
 }
 
+.dest-card__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #f4b400;
+  margin-bottom: 0.4rem;
+  width: fit-content;
+}
+
+.dest-card__btn {
+  display: inline-block;
+  margin-top: 0.6rem;
+  padding: 0.45rem 1.2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: background 0.3s ease, transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.dest-card:hover .dest-card__btn {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dest-card__btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dest-card__btn {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 /* ===== GALLERY MOSAIC ===== */
 .gallery-mosaic {
   padding: 4rem 0;
