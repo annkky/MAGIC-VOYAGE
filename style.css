@@ -192,12 +192,34 @@ ul, ol {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  flex-wrap: wrap;
   font-family: var(--font-heading);
   font-size: clamp(1.3rem, 3vw, 1.6rem);
   font-weight: 900;
   color: var(--color-text-white);
   transition: var(--transition);
   z-index: 10000;
+}
+
+.nav__logo-sub {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  -webkit-text-fill-color: var(--color-accent);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+  margin-top: -0.3rem;
+  padding-left: 2.3rem;
+}
+
+.nav.scrolled .nav__logo-sub {
+  color: var(--color-primary);
+  -webkit-text-fill-color: var(--color-primary);
 }
 
 .nav.scrolled .nav__logo {
