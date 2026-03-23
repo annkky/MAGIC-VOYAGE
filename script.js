@@ -135,9 +135,15 @@
   // === SMOOTH SCROLL FOR ANCHOR LINKS ===
   document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
     anchor.addEventListener('click', function(e) {
-      var target = document.querySelector(this.getAttribute('href'));
+      var href = this.getAttribute('href');
+      if (href === '#') return;
+      var target = document.querySelector(href);
       if (target) {
         e.preventDefault();
+        // If mobile menu is open, close it first and restore scroll
+        if (mobileMenu.classList.contains('open')) {
+          toggleMenu();
+        }
         var offset = navbar.offsetHeight + 10;
         var targetPosition = target.getBoundingClientRect().top + window.scrollY - offset;
         window.scrollTo({
