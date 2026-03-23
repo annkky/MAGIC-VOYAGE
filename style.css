@@ -1562,6 +1562,10 @@ ul, ol {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .destinations__grid .dest-card:last-child {
+    grid-column: 1 / -1;
+  }
+
   .contact__grid {
     grid-template-columns: 1fr 1.2fr;
     align-items: start;
@@ -1651,6 +1655,11 @@ ul, ol {
   .dest-card:first-child {
     grid-row: span 2;
     height: auto;
+  }
+
+  .destinations__grid .dest-card:last-child {
+    grid-column: 1 / -1;
+    height: 320px;
   }
 
   .gallery-mosaic {
