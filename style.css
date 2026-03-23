@@ -175,10 +175,10 @@ ul, ol {
 }
 
 .nav.scrolled {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(15, 36, 64, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   padding: 0.6rem 0;
 }
 
@@ -230,17 +230,13 @@ ul, ol {
 }
 
 .nav.scrolled .nav__logo-sub {
-  color: var(--color-primary);
-  -webkit-text-fill-color: var(--color-primary);
-}
-
-.nav.scrolled .nav__logo {
-  color: var(--color-secondary);
+  color: var(--color-accent);
+  -webkit-text-fill-color: var(--color-accent);
 }
 
 .nav.scrolled .nav__logo-name {
-  color: var(--color-secondary);
-  -webkit-text-fill-color: var(--color-secondary);
+  color: var(--color-text-white);
+  -webkit-text-fill-color: var(--color-text-white);
 }
 
 .nav__links {
@@ -259,7 +255,11 @@ ul, ol {
 }
 
 .nav.scrolled .nav__link {
-  color: var(--color-secondary);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.nav.scrolled .nav__link:hover {
+  color: var(--color-text-white);
 }
 
 .nav__link::after {
@@ -323,7 +323,7 @@ ul, ol {
 }
 
 .nav.scrolled .nav__burger-line {
-  background: var(--color-secondary);
+  background: var(--color-text-white);
 }
 
 .nav__burger.active .nav__burger-line {
