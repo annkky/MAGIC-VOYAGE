@@ -19,12 +19,23 @@
   var mobileMenu = document.getElementById('mobileMenu');
   var mobileLinks = mobileMenu.querySelectorAll('.nav__mobile-link');
 
+  var scrollPos = 0;
+
   function toggleMenu() {
     var isOpen = mobileMenu.classList.toggle('open');
     burger.classList.toggle('active');
     burger.setAttribute('aria-expanded', isOpen);
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-    document.documentElement.style.overflow = isOpen ? 'hidden' : '';
+    if (isOpen) {
+      scrollPos = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = '-' + scrollPos + 'px';
+      document.body.style.width = '100%';
+    } else {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, scrollPos);
+    }
   }
 
   burger.addEventListener('click', toggleMenu);
