@@ -981,6 +981,22 @@ ul, ol {
   }
 }
 
+@media (max-width: 1024px) {
+  .dest-card__btn {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .dest-card:hover .dest-card__overlay {
+    background: linear-gradient(to top, rgba(15, 36, 64, 0.9) 0%, transparent 60%);
+  }
+
+  .gallery-mosaic__overlay span {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ===== GALLERY MOSAIC ===== */
 .gallery-mosaic {
   padding: 4rem 0;
