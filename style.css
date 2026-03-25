@@ -1642,6 +1642,16 @@ ul, ol {
   transform: translateY(-3px);
 }
 
+/* ===== MOBILE LOGO FIX ===== */
+@media (max-width: 767px) {
+  .nav__logo-img {
+    margin: -135px -130px -135px -80px;
+  }
+  .nav__logo-sub {
+    margin-left: -25px;
+  }
+}
+
 /* ===== TABLET ===== */
 @media (min-width: 768px) {
   .section {
