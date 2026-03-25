@@ -222,6 +222,8 @@ ul, ol {
   line-height: 1.05;
   letter-spacing: 0.02em;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+  margin-left: 200px;
+  visibility: hidden;
 }
 
 .nav__logo-sub {
