@@ -1645,10 +1645,10 @@ ul, ol {
 /* ===== MOBILE LOGO FIX ===== */
 @media (max-width: 767px) {
   .nav__logo-img {
-    margin: -135px -130px -135px -80px;
+    margin: -135px -130px -135px -40px;
   }
   .nav__logo-sub {
-    margin-left: -25px;
+    margin-left: 15px;
   }
 }
 
