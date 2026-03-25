@@ -207,11 +207,11 @@ ul, ol {
 }
 
 .nav__logo-img {
-  width: 350px;
-  height: 350px;
+  width: 120px;
+  height: 120px;
   object-fit: contain;
+  margin: 0 0 0 8px;
   flex-shrink: 0;
-  margin: -135px -130px -135px -110px;
 }
 
 .nav__logo-name {
@@ -227,10 +227,9 @@ ul, ol {
 }
 
 .nav__logo-sub {
-  margin-left: -55px;
-  margin-top: -15px;
-  font-family: var(--font-body);
-  font-size: 0.65rem;
+  margin-left: 8px;
+  margin-top: 2px;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -980,8 +979,6 @@ ul, ol {
   color: rgba(255, 255, 255, 0.8);
 }
 
-
-
 .dest-card__tag {
   position: absolute;
   top: 1rem;
@@ -1645,10 +1642,18 @@ ul, ol {
 /* ===== MOBILE LOGO FIX ===== */
 @media (max-width: 767px) {
   .nav__logo-img {
-    margin: -135px -130px -135px -40px;
+    width: 120px;
+    height: 120px;
+    margin: 0 0 0 8px;
+    object-fit: contain;
+  }
+  .nav__logo {
+    align-items: flex-start;
   }
   .nav__logo-sub {
-    margin-left: 15px;
+    margin-left: 8px;
+    margin-top: 2px;
+    font-size: 0.8rem;
   }
 }
 
