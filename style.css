@@ -1043,6 +1043,9 @@ ul, ol {
 }
 
 @media (max-width: 1024px) {
+    .nav__burger {
+      display: flex !important;
+    }
   .dest-card .dest-card__btn {
     opacity: 1;
     transform: translateY(0);
@@ -1792,7 +1795,7 @@ ul, ol {
   }
 
   .nav__burger {
-    display: none;
+    display: none !important;
   }
 
   .about__grid {
