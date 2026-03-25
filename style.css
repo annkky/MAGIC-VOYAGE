@@ -1642,18 +1642,14 @@ ul, ol {
 /* ===== MOBILE LOGO FIX ===== */
 @media (max-width: 767px) {
   .nav__logo-img {
-    width: 120px;
-    height: 120px;
-    margin: 0 0 0 8px;
-    object-fit: contain;
-  }
-  .nav__logo {
-    align-items: flex-start;
+    margin: -135px -130px -135px -40px;
+    width: 350px;
+    height: 350px;
   }
   .nav__logo-sub {
-    margin-left: 8px;
-    margin-top: 2px;
-    font-size: 0.8rem;
+    margin-left: 15px;
+    margin-top: -15px;
+    font-size: 0.65rem;
   }
 }
 
