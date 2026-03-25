@@ -1,3 +1,20 @@
+/* Специальный стиль для новой широкой картинки "Музей будущего" */
+.gallery-mosaic__item--future {
+  grid-column: span 2;
+  height: 320px;
+}
+
+@media (min-width: 768px) {
+  .gallery-mosaic__item--future {
+    height: 420px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .gallery-mosaic__item--future {
+    height: 520px;
+  }
+}
 /* ===== DESIGN SYSTEM ===== */
 :root {
   --color-primary: #3b9fd8;
