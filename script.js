@@ -27,16 +27,21 @@
     burger.setAttribute('aria-expanded', isOpen);
     if (isOpen) {
       scrollPos = window.scrollY;
-      document.body.style.position = 'fixed';
+      document.body.classList.add('menu-open');
       document.body.style.top = '-' + scrollPos + 'px';
-      document.body.style.width = '100%';
     } else {
-      document.body.style.position = '';
+      document.body.classList.remove('menu-open');
       document.body.style.top = '';
-      document.body.style.width = '';
       window.scrollTo(0, scrollPos);
     }
   }
+
+  // Close menu on escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+      toggleMenu();
+    }
+  });
 
   burger.addEventListener('click', toggleMenu);
 

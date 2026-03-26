@@ -1,11 +1,12 @@
 /* Специальный стиль для новой широкой картинки "Музей будущего" */
 .gallery-mosaic__item--future {
-  grid-column: span 2;
-  height: 320px;
+  grid-column: span 1;
+  height: 220px;
 }
 
 @media (min-width: 768px) {
   .gallery-mosaic__item--future {
+    grid-column: span 2;
     height: 420px;
   }
 }
@@ -62,6 +63,7 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -187,6 +189,7 @@ ul, ol {
   right: 0;
   z-index: 9999;
   padding: 1rem 0;
+  padding-top: calc(1rem + env(safe-area-inset-top, 0px));
   transition: var(--transition);
   background: transparent;
 }
@@ -197,6 +200,7 @@ ul, ol {
   -webkit-backdrop-filter: blur(20px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   padding: 0.6rem 0;
+  padding-top: calc(0.6rem + env(safe-area-inset-top, 0px));
 }
 
 .nav__inner {
@@ -214,7 +218,8 @@ ul, ol {
   font-weight: 900;
   color: var(--color-text-white);
   transition: var(--transition);
-  z-index: 10000;
+  z-index: 10002;
+  position: relative;
 }
 
 /* .nav__logo-top {
@@ -328,13 +333,14 @@ ul, ol {
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  width: 32px;
-  height: 32px;
+  width: 44px;
+  height: 44px;
   cursor: pointer;
-  z-index: 10000;
+  z-index: 10002;
   background: none;
   border: none;
-  padding: 0;
+  padding: 6px;
+  position: relative;
 }
 
 .nav__burger-line {
@@ -350,19 +356,28 @@ ul, ol {
 }
 
 .nav__burger.active .nav__burger-line {
-  background: var(--color-secondary);
+  background: var(--color-text-white);
 }
 
 .nav__burger.active .nav__burger-line:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
+  transform: rotate(45deg) translate(6px, 6px);
 }
 
 .nav__burger.active .nav__burger-line:nth-child(2) {
   opacity: 0;
+  transform: translateX(10px);
 }
 
 .nav__burger.active .nav__burger-line:nth-child(3) {
-  transform: rotate(-45deg) translate(5px, -5px);
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* Body lock when menu is open */
+body.menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
 }
 
 .nav__mobile-menu {
@@ -377,11 +392,16 @@ ul, ol {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
+  padding-top: calc(80px + env(safe-area-inset-top, 0px));
+  padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
   transform: translateX(100%);
   transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
-  z-index: 9998;
+  z-index: 10001;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .nav__mobile-menu.open {
@@ -395,6 +415,14 @@ ul, ol {
   transition: var(--transition);
   opacity: 0;
   transform: translateY(20px);
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-md);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.nav__mobile-link:active {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(0.98);
 }
 
 .nav__mobile-menu.open .nav__mobile-link {
@@ -417,11 +445,12 @@ ul, ol {
 .hero {
   position: relative;
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 6rem 1.25rem 4rem;
+  padding: calc(6rem + env(safe-area-inset-top, 0px)) 1.25rem 4rem;
   background:
     linear-gradient(135deg, rgba(10, 40, 70, 0.75) 0%, rgba(20, 60, 100, 0.6) 40%, rgba(59, 159, 216, 0.35) 100%),
     url('images/hero-bg.jpg') center/cover no-repeat;
@@ -1654,6 +1683,7 @@ ul, ol {
 .footer__bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 1.5rem 0;
+  padding-bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
   text-align: center;
   font-size: 0.8rem;
 }
@@ -1661,8 +1691,8 @@ ul, ol {
 /* Back to top */
 .back-top {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
+  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
+  right: calc(1.5rem + env(safe-area-inset-right, 0px));
   width: 48px;
   height: 48px;
   background: var(--color-primary);
@@ -1680,6 +1710,7 @@ ul, ol {
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .back-top.visible {
@@ -1693,17 +1724,235 @@ ul, ol {
   transform: translateY(-3px);
 }
 
-/* ===== MOBILE LOGO FIX ===== */
+/* ===== MOBILE FIXES ===== */
 @media (max-width: 767px) {
+  /* Logo fixes */
   .nav__logo-img {
-    margin: -135px -130px -135px -40px;
-    width: 350px;
-    height: 350px;
+    width: 100px;
+    height: auto;
+    margin: 0;
   }
   .nav__logo-sub {
-    margin-left: 15px;
-    margin-top: -15px;
+    margin-left: 8px;
+    margin-top: 2px;
+    font-size: 0.55rem;
+  }
+  .nav__logo {
+    max-width: 120px;
+  }
+
+  /* Gallery mosaic - single column on mobile */
+  .gallery-mosaic__item--wide,
+  .gallery-mosaic__item--tall {
+    grid-column: span 1;
+    grid-row: span 1;
+    height: 220px;
+  }
+
+  /* Footer logo smaller on mobile */
+  .footer__logo-img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .footer__logo span {
+    font-size: 1.2rem;
+  }
+
+  /* Review card author - better wrapping */
+  .review-card__author {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  .review-card__destination {
+    margin-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  /* Trust bar - smaller text */
+  .trust-bar__label {
+    font-size: 0.7rem;
+  }
+
+  .trust-bar__number {
+    font-size: 1.6rem;
+  }
+
+  /* Hero section padding adjustment */
+  .hero {
+    padding: 5rem 1rem 3rem;
+  }
+
+  .hero__badge {
+    font-size: 0.7rem;
+    padding: 0.4rem 1rem;
+  }
+
+  /* Services items - tighter on mobile */
+  .services__summary-item {
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+
+  .services__summary-icon-wrap {
+    width: 2.8rem;
+    height: 2.8rem;
+    min-width: 2.8rem;
+  }
+
+  .services__summary-icon {
+    font-size: 1.3rem;
+  }
+
+  /* Why cards - adjust for mobile */
+  .why-card {
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+
+  .why-card__num {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  /* Contact info - smaller icons */
+  .contact__info-icon {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+  }
+
+  /* FAQ - tighter padding */
+  .faq-item__question {
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .faq-item__answer-inner {
+    padding: 0 1.25rem 1rem;
+  }
+
+  /* Destinations cards - shorter on mobile */
+  .dest-card {
+    height: 240px !important;
+    aspect-ratio: auto !important;
+  }
+
+  .dest-card__title {
+    font-size: 1.2rem;
+  }
+
+  /* Section padding adjustment */
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section__header {
+    margin-bottom: 2rem;
+  }
+
+  /* About image */
+  .about__image {
+    height: 280px;
+  }
+
+  .about__image-badge {
+    font-size: 0.8rem;
+    padding: 0.6rem 1rem;
+    left: 1rem;
+    bottom: 1rem;
+  }
+
+  /* Image divider */
+  .img-divider {
+    height: 180px;
+  }
+
+  /* Back to top button - smaller on mobile */
+  .back-top {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+/* ===== EXTRA SMALL SCREENS ===== */
+@media (max-width: 374px) {
+  .hero__title {
+    font-size: 1.8rem;
+  }
+
+  .hero__subtitle {
+    font-size: 0.9rem;
+  }
+
+  .btn {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .section__title {
+    font-size: 1.5rem;
+  }
+
+  .trust-bar__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .trust-bar__number {
+    font-size: 1.4rem;
+  }
+
+  .trust-bar__label {
     font-size: 0.65rem;
+  }
+
+  .nav__logo-img {
+    width: 80px;
+  }
+
+  .nav__logo-sub {
+    font-size: 0.5rem;
+  }
+
+  .services__summary-title {
+    font-size: 0.95rem;
+  }
+
+  .services__summary-desc {
+    font-size: 0.8rem;
+  }
+
+  .dest-card {
+    height: 200px !important;
+    aspect-ratio: auto !important;
+  }
+
+  .dest-card__title {
+    font-size: 1.1rem;
+  }
+
+  .review-card {
+    padding: 1.5rem 1rem 1rem;
+  }
+
+  .review-card__text {
+    font-size: 0.9rem;
+  }
+
+  .footer__grid {
+    gap: 1.5rem;
+  }
+
+  .footer__logo-img {
+    width: 100px;
+    height: 100px;
   }
 }
 
