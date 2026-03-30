@@ -21,14 +21,12 @@ if (!$data) {
 }
 
 // Извлекаем нужные поля
-$status      = $data['status']               ?? 'unknown';
-$transaction = $data['shop_transaction_id']  ?? '—';
-$amount      = $data['total_sum']            ?? '—';
-$name        = $data['user_data']['full_name'] ?? '—';
-$phone       = $data['user_data']['phone']     ?? '—';
-$description = $data['description']           ?? '—';
-$octo_id     = $data['octo_pay_id']           ?? '—';
-$paid_time   = $data['pay_time']              ?? date('Y-m-d H:i:s');
+$status      = $data['status']              ?? 'unknown';
+$transaction = $data['shop_transaction_id'] ?? '—';
+$amount      = $data['total_sum']           ?? '—';
+$description = $data['description']         ?? '—';
+$octo_id     = $data['octo_pay_id']         ?? '—';
+$paid_time   = $data['pay_time']            ?? date('Y-m-d H:i:s');
 
 // Отправляем письмо только при успешной оплате
 if ($status === 'succeeded') {
@@ -39,9 +37,6 @@ if ($status === 'succeeded') {
           . "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
           . "Сумма:          {$amount} сум\n"
           . "Назначение:     {$description}\n"
-          . "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
-          . "Клиент:         {$name}\n"
-          . "Телефон:        {$phone}\n"
           . "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n"
           . "ID транзакции:  {$transaction}\n"
           . "OCTO Pay ID:    {$octo_id}\n"
