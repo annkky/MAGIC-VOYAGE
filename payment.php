@@ -6,18 +6,15 @@
  * Документация: https://help.octo.uz/payment-via-web/one-stage.html
  */
 
-// ===== НАСТРОЙКИ МАГАЗИНА =====
-// TODO: замените на реальные значения из личного кабинета OCTO Pay
-define('OCTO_SHOP_ID',  0);          // Ваш octo_shop_id
-define('OCTO_SECRET',   'YOUR_SECRET_HERE'); // Ваш octo_secret (никогда не передавать на фронтенд!)
-define('OCTO_API_URL',  'https://secure.octo.uz/prepare_payment');
-define('TEST_MODE',     true);       // true — тестовый режим, false — боевой
+// ===== КОНФИГУРАЦИЯ (из файла вне public_html) =====
+$config_path = dirname(__DIR__) . '/config.php'; // /home/username/config.php
+if (!file_exists($config_path)) {
+    http_response_code(500);
+    exit('Ошибка конфигурации сервера.');
+}
+require_once $config_path;
 
-// URL-адреса после оплаты (замените на реальный домен)
-define('BASE_URL',      'https://magicvoyage.uz');
-define('RETURN_URL',    BASE_URL . '/payment-success.html');
-define('FAIL_URL',      BASE_URL . '/payment-fail.html');
-define('NOTIFY_URL',    BASE_URL . '/payment-notify.php');
+define('OCTO_API_URL', 'https://secure.octo.uz/prepare_payment');
 
 // ===== ВХОДНЫЕ ДАННЫЕ =====
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
