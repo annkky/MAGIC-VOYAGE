@@ -63,11 +63,6 @@ $payload = [
     'notify_url'          => NOTIFY_URL,
     'language'            => 'ru',
     'ttl'                 => 15,     // форма оплаты действительна 15 минут
-    'user_data'           => [
-        'user_id'    => $shop_transaction_id,
-        'phone'      => $client_phone,
-        'full_name'  => $client_name,
-    ],
 ];
 
 // Добавляем test-флаг только в тестовом режиме

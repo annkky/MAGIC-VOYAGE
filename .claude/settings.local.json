@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:help.octo.uz)"
+      "WebFetch(domain:help.octo.uz)",
+      "Bash(curl -s \"https://help.octo.uz/payment-via-web/one-stage.html\")"
     ]
   }
 }
