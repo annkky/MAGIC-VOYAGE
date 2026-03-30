@@ -7,8 +7,8 @@
 
   function onScroll() {
     var scrollY = window.scrollY;
-    navbar.classList.toggle('scrolled', scrollY > 80);
-    backTop.classList.toggle('visible', scrollY > 600);
+    if (navbar) navbar.classList.toggle('scrolled', scrollY > 80);
+    if (backTop) backTop.classList.toggle('visible', scrollY > 600);
   }
 
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -133,9 +133,11 @@
   // === CONTACT FORM (removed) ===
 
   // === BACK TO TOP ===
-  backTop.addEventListener('click', function() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  if (backTop) {
+    backTop.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
 
   // === SMOOTH SCROLL FOR ANCHOR LINKS ===
   document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
