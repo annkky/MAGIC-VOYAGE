@@ -5,6 +5,13 @@
  * Документация: https://help.octo.uz/payment-via-web/one-stage.html
  */
 
+// Загружаем конфигурацию
+$config_path = dirname(__DIR__) . '/config.php';
+if (file_exists($config_path)) {
+    require_once $config_path;
+}
+$notify_email = defined('NOTIFY_EMAIL') ? NOTIFY_EMAIL : 'magic.voyage74@gmail.com';
+
 // Принимаем только POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
@@ -30,7 +37,7 @@ $paid_time   = $data['pay_time']            ?? date('Y-m-d H:i:s');
 
 // Отправляем письмо только при успешной оплате
 if ($status === 'succeeded') {
-    $to      = 'magic.voyage74@gmail.com';
+    $to      = $notify_email;
     $subject = '=?UTF-8?B?' . base64_encode('Новая оплата — MAGIC VOYAGE') . '?=';
 
     $body = "Получена новая оплата через OCTO Pay.\n\n"
