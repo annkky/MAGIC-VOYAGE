@@ -1,542 +1,556 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>MAGIC VOYAGE — Семейный туризм мечты</title>
-  <meta name="description" content="MAGIC VOYAGE — мы создаём незабываемые семейные путешествия. Знаем всё о комфортном отдыхе для всей семьи.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>MAGIC VOYAGE — Семейный туризм мечты</title>
+    <meta
+      name="description"
+      content="MAGIC VOYAGE — мы создаём незабываемые семейные путешествия. Знаем всё о комфортном отдыхе для всей семьи."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAVIGATION -->
+    <nav class="nav" id="navbar" role="navigation" aria-label="Основная навигация">
+      <div class="container nav__inner">
+        <a href="#" class="nav__logo" aria-label="MAGIC VOYAGE - на главную">
+          <img src="images/egypt2.jpg/logo-1.svg" alt="MAGIC VOYAGE" class="nav__logo-img" />
+          <div class="nav__logo-sub">Туристическое агентство</div>
+        </a>
 
-  <!-- NAVIGATION -->
-  <nav class="nav" id="navbar" role="navigation" aria-label="Основная навигация">
-    <div class="container nav__inner">
-      <a href="#" class="nav__logo" aria-label="MAGIC VOYAGE - на главную">
-        <img src="images/egypt2.jpg/logo-1.svg" alt="MAGIC VOYAGE" class="nav__logo-img">
-        <div class="nav__logo-sub">Туристическое агентство</div>
-      </a>
+        <div class="nav__links">
+          <a href="#about" class="nav__link">О нас</a>
+          <a href="#services" class="nav__link">Услуги</a>
+          <a href="#destinations" class="nav__link">Направления</a>
+          <a href="#reviews" class="nav__link">Отзывы</a>
+          <a href="#faq" class="nav__link">FAQ</a>
+          <a href="#contact" class="nav__link nav__cta">Связаться</a>
+        </div>
 
-      <div class="nav__links">
-        <a href="#about" class="nav__link">О нас</a>
-        <a href="#services" class="nav__link">Услуги</a>
-        <a href="#destinations" class="nav__link">Направления</a>
-        <a href="#reviews" class="nav__link">Отзывы</a>
-        <a href="#faq" class="nav__link">FAQ</a>
-        <a href="#contact" class="nav__link nav__cta">Связаться</a>
+        <button class="nav__burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+          <span class="nav__burger-line"></span>
+          <span class="nav__burger-line"></span>
+          <span class="nav__burger-line"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Mobile menu (outside nav to avoid nested position:fixed issues) -->
+    <div class="nav__mobile-menu" id="mobileMenu" role="dialog" aria-label="Мобильное меню">
+      <a href="#about" class="nav__mobile-link">О нас</a>
+      <a href="#services" class="nav__mobile-link">Услуги</a>
+      <a href="#destinations" class="nav__mobile-link">Направления</a>
+      <a href="#reviews" class="nav__mobile-link">Отзывы</a>
+      <a href="#faq" class="nav__mobile-link">FAQ</a>
+      <a href="#contact" class="nav__mobile-link">Связаться</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="hero__particles" aria-hidden="true">
+        <div class="hero__particle"></div>
+        <div class="hero__particle"></div>
+        <div class="hero__particle"></div>
+        <div class="hero__particle"></div>
+        <div class="hero__particle"></div>
+        <div class="hero__particle"></div>
       </div>
 
-      <button class="nav__burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
-        <span class="nav__burger-line"></span>
-        <span class="nav__burger-line"></span>
-        <span class="nav__burger-line"></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Mobile menu (outside nav to avoid nested position:fixed issues) -->
-  <div class="nav__mobile-menu" id="mobileMenu" role="dialog" aria-label="Мобильное меню">
-    <a href="#about" class="nav__mobile-link">О нас</a>
-    <a href="#services" class="nav__mobile-link">Услуги</a>
-    <a href="#destinations" class="nav__mobile-link">Направления</a>
-    <a href="#reviews" class="nav__mobile-link">Отзывы</a>
-    <a href="#faq" class="nav__mobile-link">FAQ</a>
-    <a href="#contact" class="nav__mobile-link">Связаться</a>
-  </div>
-
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="hero__particles" aria-hidden="true">
-      <div class="hero__particle"></div>
-      <div class="hero__particle"></div>
-      <div class="hero__particle"></div>
-      <div class="hero__particle"></div>
-      <div class="hero__particle"></div>
-      <div class="hero__particle"></div>
-    </div>
-
-    <div class="hero__content">
-      <div class="hero__badge">✨ Семейные путешествия мечты</div>
-      <h1 class="hero__title">
-        Создаём волшебные моменты для всей семьи
-      </h1>
-      <p class="hero__subtitle">
-        Расскажите нам о своих желаниях и мы организуем ваш идеальный отдых с детьми!
-      </p>
-      <div class="hero__buttons">
-        <a href="#contact" class="btn btn--primary">🌴 Спланировать отдых</a>
-        <a href="#about" class="btn btn--outline">Узнать больше →</a>
-        <a href="payment.html" class="btn btn--pay">💳 Оплатить онлайн</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRUST BAR -->
-  <section class="trust-bar" aria-label="Наши достижения">
-    <div class="container">
-      <div class="trust-bar__inner">
-        <div class="trust-bar__item reveal">
-          <div class="trust-bar__number" data-count="100">0</div>
-          <div class="trust-bar__label">Счастливых семей</div>
-        </div>
-        <div class="trust-bar__item reveal">
-          <div class="trust-bar__number" data-count="45">0</div>
-          <div class="trust-bar__label">Стран мира</div>
-        </div>
-        <div class="trust-bar__item reveal">
-          <div class="trust-bar__number" data-count="5">0</div>
-          <div class="trust-bar__label">Лет опыта</div>
-        </div>
-        <div class="trust-bar__item reveal">
-          <div class="trust-bar__number" data-count="98">0</div>
-          <div class="trust-bar__label">% довольных клиентов</div>
+      <div class="hero__content">
+        <div class="hero__badge">✨ Семейные путешествия мечты</div>
+        <h1 class="hero__title">Создаём волшебные моменты для всей семьи</h1>
+        <p class="hero__subtitle">Расскажите нам о своих желаниях и мы организуем ваш идеальный отдых с детьми!</p>
+        <div class="hero__buttons">
+          <a href="#contact" class="btn btn--primary">🌴 Спланировать отдых</a>
+          <a href="#about" class="btn btn--outline">Узнать больше →</a>
+          <a href="payment.html" class="btn btn--pay">💳 Оплатить онлайн</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ABOUT -->
-  <section class="section" id="about">
-    <div class="container">
-      <div class="about__grid">
-        <div class="about__image-wrapper reveal-left">
-          <img
-            src="images/egypt2.jpg/about-family-new.jpg.jpg"
-            alt="Счастливая семья на отдыхе у моря"
-            class="about__image"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="450"
-          >
-          <div class="about__image-badge">✈️ Создаём воспоминания, которые остаются навсегда</div>
+    <!-- TRUST BAR -->
+    <section class="trust-bar" aria-label="Наши достижения">
+      <div class="container">
+        <div class="trust-bar__inner">
+          <div class="trust-bar__item reveal">
+            <div class="trust-bar__number" data-count="100">0</div>
+            <div class="trust-bar__label">Счастливых семей</div>
+          </div>
+          <div class="trust-bar__item reveal">
+            <div class="trust-bar__number" data-count="45">0</div>
+            <div class="trust-bar__label">Стран мира</div>
+          </div>
+          <div class="trust-bar__item reveal">
+            <div class="trust-bar__number" data-count="5">0</div>
+            <div class="trust-bar__label">Лет опыта</div>
+          </div>
+          <div class="trust-bar__item reveal">
+            <div class="trust-bar__number" data-count="98">0</div>
+            <div class="trust-bar__label">% довольных клиентов</div>
+          </div>
         </div>
-        <div class="about__content reveal-right">
-          <div class="section__tag">🌟 О нас</div>
-          <h2 class="section__title">Почему семьи выбирают нас</h2>
-          <p class="about__text">
-            <strong>MAGIC VOYAGE</strong> — команда профессионалов, создающая отдых на основе проверенного туристического опыта. Мы не просто подбираем туры — мы создаём незабываемые семейные истории.
-          </p>
-          <p class="about__text">
-            Каждый маршрут продуман до мелочей: безопасность детей, комфорт родителей, развлечения для подростков и спокойствие для бабушек и дедушек. Мы объединяем поколения через путешествия.
-          </p>
-          <div class="about__features">
-            <div class="about__feature">
-              <div class="about__feature-icon">🛡️</div>
-              <div class="about__feature-text">
-                <h4>Безопасность прежде всего</h4>
-                <p>Проверенные отели, трансферы, страховка для всей семьи</p>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="about__grid">
+          <div class="about__image-wrapper reveal-left">
+            <img
+              src="images/egypt2.jpg/about-family-new.jpg.jpg"
+              alt="Счастливая семья на отдыхе у моря"
+              class="about__image"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="450"
+            />
+            <div class="about__image-badge">✈️ Создаём воспоминания, которые остаются навсегда</div>
+          </div>
+          <div class="about__content reveal-right">
+            <div class="section__tag">🌟 О нас</div>
+            <h2 class="section__title">Почему семьи выбирают нас</h2>
+            <p class="about__text">
+              <strong>MAGIC VOYAGE</strong> — команда профессионалов, создающая отдых на основе проверенного туристического опыта. Мы не
+              просто подбираем туры — мы создаём незабываемые семейные истории.
+            </p>
+            <p class="about__text">
+              Каждый маршрут продуман до мелочей: безопасность детей, комфорт родителей, развлечения для подростков и спокойствие для
+              бабушек и дедушек. Мы объединяем поколения через путешествия.
+            </p>
+            <div class="about__features">
+              <div class="about__feature">
+                <div class="about__feature-icon">🛡️</div>
+                <div class="about__feature-text">
+                  <h4>Безопасность прежде всего</h4>
+                  <p>Проверенные отели, трансферы, страховка для всей семьи</p>
+                </div>
+              </div>
+              <div class="about__feature">
+                <div class="about__feature-icon">👶</div>
+                <div class="about__feature-text">
+                  <h4>Для любого возраста</h4>
+                  <p>Программы для малышей, подростков и взрослых</p>
+                </div>
+              </div>
+              <div class="about__feature">
+                <div class="about__feature-icon">💰</div>
+                <div class="about__feature-text">
+                  <h4>Честные цены</h4>
+                  <p>Без скрытых платежей и неприятных сюрпризов</p>
+                </div>
+              </div>
+              <div class="about__feature">
+                <div class="about__feature-icon">🎯</div>
+                <div class="about__feature-text">
+                  <h4>Индивидуальный подход</h4>
+                  <p>Учитываем интересы каждого члена семьи</p>
+                </div>
               </div>
             </div>
-            <div class="about__feature">
-              <div class="about__feature-icon">👶</div>
-              <div class="about__feature-text">
-                <h4>Для любого возраста</h4>
-                <p>Программы для малышей, подростков и взрослых</p>
-              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section section--alt" id="services">
+      <div class="container">
+        <div class="section__header reveal">
+          <div class="section__tag">🎒 Наши услуги</div>
+          <h2 class="section__title">Всё для идеального семейного отдыха</h2>
+          <p class="section__subtitle">Мы берём на себя все заботы, чтобы вы могли наслаждаться временем с семьёй</p>
+        </div>
+
+        <ul class="services__summary reveal">
+          <li class="services__summary-item">
+            <div class="services__summary-icon-wrap">
+              <span class="services__summary-icon">📋</span>
             </div>
-            <div class="about__feature">
-              <div class="about__feature-icon">💰</div>
-              <div class="about__feature-text">
-                <h4>Честные цены</h4>
-                <p>Без скрытых платежей и неприятных сюрпризов</p>
-              </div>
+            <div class="services__summary-content">
+              <h3 class="services__summary-title">Консультация и бронирование</h3>
+              <p class="services__summary-desc">Подберём и забронируем идеальный тур для вашей семьи</p>
             </div>
-            <div class="about__feature">
-              <div class="about__feature-icon">🎯</div>
-              <div class="about__feature-text">
-                <h4>Индивидуальный подход</h4>
-                <p>Учитываем интересы каждого члена семьи</p>
-              </div>
+          </li>
+          <li class="services__summary-item">
+            <div class="services__summary-icon-wrap">
+              <span class="services__summary-icon">🌍</span>
+            </div>
+            <div class="services__summary-content">
+              <h3 class="services__summary-title">Популярные направления</h3>
+              <p class="services__summary-desc">Организация туров по самым востребованным маршрутам мира</p>
+            </div>
+          </li>
+          <li class="services__summary-item">
+            <div class="services__summary-icon-wrap">
+              <span class="services__summary-icon">🛡️</span>
+            </div>
+            <div class="services__summary-content">
+              <h3 class="services__summary-title">Страхование туристов</h3>
+              <p class="services__summary-desc">Полная медицинская страховка для спокойного отдыха</p>
+            </div>
+          </li>
+          <li class="services__summary-item">
+            <div class="services__summary-icon-wrap">
+              <span class="services__summary-icon">📄</span>
+            </div>
+            <div class="services__summary-content">
+              <h3 class="services__summary-title">Визы и документы</h3>
+              <p class="services__summary-desc">Оформление визы и подготовка всех необходимых документов</p>
+            </div>
+          </li>
+          <li class="services__summary-item">
+            <div class="services__summary-icon-wrap">
+              <span class="services__summary-icon">📞</span>
+            </div>
+            <div class="services__summary-content">
+              <h3 class="services__summary-title">Поддержка 24/7</h3>
+              <p class="services__summary-desc">Всегда на связи — до, во время и после вашего путешествия</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="section section--dark" id="why-us">
+      <div class="container">
+        <div class="section__header reveal">
+          <div class="section__tag" style="color: var(--color-accent)">💎 Почему мы</div>
+          <h2 class="section__title">Что делает нас особенными</h2>
+          <p class="section__subtitle">Мы помогаем семьям создавать лучшие воспоминания в жизни</p>
+        </div>
+
+        <div class="why-us__grid">
+          <div class="why-card reveal">
+            <div class="why-card__num">01</div>
+            <div>
+              <h3 class="why-card__title">Мы сами — родители</h3>
+              <p class="why-card__text">
+                Наша команда — это мамы и папы, которые путешествуют с детьми и знают все нюансы семейного отдыха изнутри.
+              </p>
+            </div>
+          </div>
+
+          <div class="why-card reveal">
+            <div class="why-card__num">02</div>
+            <div>
+              <h3 class="why-card__title">Лично проверенные отели</h3>
+              <p class="why-card__text">
+                Каждый отель инспектирован нашей командой лично. Мы не предлагаем то, что не выбрали бы для своей семьи.
+              </p>
+            </div>
+          </div>
+
+          <div class="why-card reveal">
+            <div class="why-card__num">03</div>
+            <div>
+              <h3 class="why-card__title">Поддержка 24/7</h3>
+              <p class="why-card__text">На связи до, во время и после поездки. Если что-то идёт не так — решаем за минуты, а не дни.</p>
+            </div>
+          </div>
+
+          <div class="why-card reveal">
+            <div class="why-card__num">04</div>
+            <div>
+              <h3 class="why-card__title">Гибкие программы</h3>
+              <p class="why-card__text">
+                Дневной сон малыша? Подросток хочет дайвинг? Бабушка предпочитает спа? Мы составим расписание для всех.
+              </p>
+            </div>
+          </div>
+
+          <div class="why-card reveal">
+            <div class="why-card__num">05</div>
+            <div>
+              <h3 class="why-card__title">Детские программы</h3>
+              <p class="why-card__text">
+                Мастер-классы, квесты, анимация — дети возвращаются с каникул с горящими глазами и новыми друзьями.
+              </p>
+            </div>
+          </div>
+
+          <div class="why-card reveal">
+            <div class="why-card__num">06</div>
+            <div>
+              <h3 class="why-card__title">Без стресса</h3>
+              <p class="why-card__text">
+                Визы, билеты, трансферы, страховки — берём всю логистику на себя. Вам остаётся только наслаждаться.
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- SERVICES -->
-  <section class="section section--alt" id="services">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__tag">🎒 Наши услуги</div>
-        <h2 class="section__title">Всё для идеального семейного отдыха</h2>
-        <p class="section__subtitle">
-          Мы берём на себя все заботы, чтобы вы могли наслаждаться временем с семьёй
-        </p>
-      </div>
-
-      <ul class="services__summary reveal">
-        <li class="services__summary-item">
-          <div class="services__summary-icon-wrap">
-            <span class="services__summary-icon">📋</span>
-          </div>
-          <div class="services__summary-content">
-            <h3 class="services__summary-title">Консультация и бронирование</h3>
-            <p class="services__summary-desc">Подберём и забронируем идеальный тур для вашей семьи</p>
-          </div>
-        </li>
-        <li class="services__summary-item">
-          <div class="services__summary-icon-wrap">
-            <span class="services__summary-icon">🌍</span>
-          </div>
-          <div class="services__summary-content">
-            <h3 class="services__summary-title">Популярные направления</h3>
-            <p class="services__summary-desc">Организация туров по самым востребованным маршрутам мира</p>
-          </div>
-        </li>
-        <li class="services__summary-item">
-          <div class="services__summary-icon-wrap">
-            <span class="services__summary-icon">🛡️</span>
-          </div>
-          <div class="services__summary-content">
-            <h3 class="services__summary-title">Страхование туристов</h3>
-            <p class="services__summary-desc">Полная медицинская страховка для спокойного отдыха</p>
-          </div>
-        </li>
-        <li class="services__summary-item">
-          <div class="services__summary-icon-wrap">
-            <span class="services__summary-icon">📄</span>
-          </div>
-          <div class="services__summary-content">
-            <h3 class="services__summary-title">Визы и документы</h3>
-            <p class="services__summary-desc">Оформление визы и подготовка всех необходимых документов</p>
-          </div>
-        </li>
-        <li class="services__summary-item">
-          <div class="services__summary-icon-wrap">
-            <span class="services__summary-icon">📞</span>
-          </div>
-          <div class="services__summary-content">
-            <h3 class="services__summary-title">Поддержка 24/7</h3>
-            <p class="services__summary-desc">Всегда на связи — до, во время и после вашего путешествия</p>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- WHY US -->
-  <section class="section section--dark" id="why-us">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__tag" style="color: var(--color-accent);">💎 Почему мы</div>
-        <h2 class="section__title">Что делает нас особенными</h2>
-        <p class="section__subtitle">
-          Мы помогаем семьям создавать лучшие воспоминания в жизни
-        </p>
-      </div>
-
-      <div class="why-us__grid">
-        <div class="why-card reveal">
-          <div class="why-card__num">01</div>
-          <div>
-            <h3 class="why-card__title">Мы сами — родители</h3>
-            <p class="why-card__text">Наша команда — это мамы и папы, которые путешествуют с детьми и знают все нюансы семейного отдыха изнутри.</p>
-          </div>
+    <!-- PHOTO GALLERY MOSAIC -->
+    <section class="gallery-mosaic" aria-label="Фото из путешествий">
+      <div class="container">
+        <div class="section__header reveal">
+          <div class="section__tag">📸 Моменты счастья</div>
+          <h2 class="section__title">Воспоминания, которые останутся навсегда</h2>
         </div>
-
-        <div class="why-card reveal">
-          <div class="why-card__num">02</div>
-          <div>
-            <h3 class="why-card__title">Лично проверенные отели</h3>
-            <p class="why-card__text">Каждый отель инспектирован нашей командой лично. Мы не предлагаем то, что не выбрали бы для своей семьи.</p>
+        <div class="gallery-mosaic__grid">
+          <div class="gallery-mosaic__item gallery-mosaic__item--wide reveal-scale">
+            <img
+              src="images/gallery-1.jpg"
+              alt="Тропический пляж с белым песком"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="500"
+            />
+            <div class="gallery-mosaic__overlay">
+              <span>🏖️ Белоснежные пляжи</span>
+            </div>
           </div>
-        </div>
-
-        <div class="why-card reveal">
-          <div class="why-card__num">03</div>
-          <div>
-            <h3 class="why-card__title">Поддержка 24/7</h3>
-            <p class="why-card__text">На связи до, во время и после поездки. Если что-то идёт не так — решаем за минуты, а не дни.</p>
+          <div class="gallery-mosaic__item reveal-scale">
+            <img src="images/gallery-2.jpg" alt="Горное озеро в горах" loading="lazy" decoding="async" width="400" height="400" />
+            <div class="gallery-mosaic__overlay">
+              <span>🏔️ Горные приключения</span>
+            </div>
           </div>
-        </div>
-
-        <div class="why-card reveal">
-          <div class="why-card__num">04</div>
-          <div>
-            <h3 class="why-card__title">Гибкие программы</h3>
-            <p class="why-card__text">Дневной сон малыша? Подросток хочет дайвинг? Бабушка предпочитает спа? Мы составим расписание для всех.</p>
+          <div class="gallery-mosaic__item reveal-scale">
+            <img src="images/gallery-3.jpg" alt="Путешествие по миру" loading="lazy" decoding="async" width="400" height="400" />
+            <div class="gallery-mosaic__overlay">
+              <span>✈️ Открытие мира</span>
+            </div>
           </div>
-        </div>
-
-        <div class="why-card reveal">
-          <div class="why-card__num">05</div>
-          <div>
-            <h3 class="why-card__title">Детские программы</h3>
-            <p class="why-card__text">Мастер-классы, квесты, анимация — дети возвращаются с каникул с горящими глазами и новыми друзьями.</p>
+          <div class="gallery-mosaic__item reveal-scale">
+            <img src="images/gallery-4.jpg" alt="Морской отдых" loading="lazy" decoding="async" width="400" height="400" />
+            <div class="gallery-mosaic__overlay">
+              <span>🌅 Волшебные закаты</span>
+            </div>
           </div>
-        </div>
-
-        <div class="why-card reveal">
-          <div class="why-card__num">06</div>
-          <div>
-            <h3 class="why-card__title">Без стресса</h3>
-            <p class="why-card__text">Визы, билеты, трансферы, страховки — берём всю логистику на себя. Вам остаётся только наслаждаться.</p>
+          <div class="gallery-mosaic__item reveal-scale">
+            <img src="images/gallery-7.jpg" alt="Природа и свобода" loading="lazy" decoding="async" width="400" height="400" />
+            <div class="gallery-mosaic__overlay">
+              <span>🌿 Единение с природой</span>
+            </div>
+          </div>
+          <div class="gallery-mosaic__item gallery-mosaic__item--wide reveal-scale">
+            <img src="images/gallery-5.jpg" alt="Закат на пляже" loading="lazy" decoding="async" width="800" height="500" />
+            <div class="gallery-mosaic__overlay">
+              <span>🌊 Морской бриз</span>
+            </div>
+          </div>
+          <div class="gallery-mosaic__item gallery-mosaic__item--tall reveal-scale">
+            <img src="images/gallery-6.jpg" alt="Курортный отель с бассейном" loading="lazy" decoding="async" width="400" height="600" />
+            <div class="gallery-mosaic__overlay">
+              <span>🏨 Роскошь отелей</span>
+            </div>
+          </div>
+          <div class="gallery-mosaic__item gallery-mosaic__item--wide reveal-scale gallery-mosaic__item--future">
+            <img src="images/egypt2.jpg/uae22.jpg" alt="Музей будущего" loading="lazy" decoding="async" width="800" height="600" />
+            <div class="gallery-mosaic__overlay">
+              <span>🚀 Музей будущего</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- PHOTO GALLERY MOSAIC -->
-  <section class="gallery-mosaic" aria-label="Фото из путешествий">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__tag">📸 Моменты счастья</div>
-        <h2 class="section__title">Воспоминания, которые останутся навсегда</h2>
-      </div>
-      <div class="gallery-mosaic__grid">
-        <div class="gallery-mosaic__item gallery-mosaic__item--wide reveal-scale">
-          <img src="images/gallery-1.jpg" alt="Тропический пляж с белым песком" loading="lazy" decoding="async" width="800" height="500">
-          <div class="gallery-mosaic__overlay">
-            <span>🏖️ Белоснежные пляжи</span>
-          </div>
+    <!-- DESTINATIONS -->
+    <section class="section" id="destinations">
+      <div class="container">
+        <div class="section__header reveal">
+          <div class="section__tag">🌍 Направления</div>
+          <h2 class="section__title">Куда отправиться с семьёй</h2>
+          <p class="section__subtitle">Наши самые популярные семейные направления — проверены тысячами счастливых семей</p>
         </div>
-        <div class="gallery-mosaic__item reveal-scale">
-          <img src="images/gallery-2.jpg" alt="Горное озеро в горах" loading="lazy" decoding="async" width="400" height="400">
-          <div class="gallery-mosaic__overlay">
-            <span>🏔️ Горные приключения</span>
-          </div>
-        </div>
-        <div class="gallery-mosaic__item reveal-scale">
-          <img src="images/gallery-3.jpg" alt="Путешествие по миру" loading="lazy" decoding="async" width="400" height="400">
-          <div class="gallery-mosaic__overlay">
-            <span>✈️ Открытие мира</span>
-          </div>
-        </div>
-        <div class="gallery-mosaic__item reveal-scale">
-          <img src="images/gallery-4.jpg" alt="Морской отдых" loading="lazy" decoding="async" width="400" height="400">
-          <div class="gallery-mosaic__overlay">
-            <span>🌅 Волшебные закаты</span>
-          </div>
-        </div>
-        <div class="gallery-mosaic__item reveal-scale">
-          <img src="images/gallery-7.jpg" alt="Природа и свобода" loading="lazy" decoding="async" width="400" height="400">
-          <div class="gallery-mosaic__overlay">
-            <span>🌿 Единение с природой</span>
-          </div>
-        </div>
-        <div class="gallery-mosaic__item gallery-mosaic__item--wide reveal-scale">
-          <img src="images/gallery-5.jpg" alt="Закат на пляже" loading="lazy" decoding="async" width="800" height="500">
-          <div class="gallery-mosaic__overlay">
-            <span>🌊 Морской бриз</span>
-          </div>
-        </div>
-        <div class="gallery-mosaic__item gallery-mosaic__item--tall reveal-scale">
-          <img src="images/gallery-6.jpg" alt="Курортный отель с бассейном" loading="lazy" decoding="async" width="400" height="600">
-          <div class="gallery-mosaic__overlay">
-            <span>🏨 Роскошь отелей</span>
-          </div>
-        </div>
-        <div class="gallery-mosaic__item gallery-mosaic__item--wide reveal-scale gallery-mosaic__item--future">
-          <img src="images/egypt2.jpg/uae22.jpg" alt="Музей будущего" loading="lazy" decoding="async" width="800" height="600">
-          <div class="gallery-mosaic__overlay">
-            <span>🚀 Музей будущего</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- DESTINATIONS -->
-  <section class="section" id="destinations">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__tag">🌍 Направления</div>
-        <h2 class="section__title">Куда отправиться с семьёй</h2>
-        <p class="section__subtitle">
-          Наши самые популярные семейные направления — проверены тысячами счастливых семей
-        </p>
-      </div>
+        <div class="destinations__grid">
+          <article class="dest-card reveal-scale">
+            <img
+              src="images/malaysia.jpg"
+              alt="Малайзия — башни Петронас и тропическая экзотика"
+              class="dest-card__img"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="600"
+            />
+            <div class="dest-card__overlay">
+              <div class="dest-card__rating">★ 4.9</div>
+              <h3 class="dest-card__title">Малайзия</h3>
+              <p class="dest-card__desc">Башни Петронас, джунгли и пляжи</p>
+              <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
+            </div>
+            <span class="dest-card__tag">🔥 Хит сезона</span>
+          </article>
 
-      <div class="destinations__grid">
-        <article class="dest-card reveal-scale">
-          <img
-            src="images/malaysia.jpg"
-            alt="Малайзия — башни Петронас и тропическая экзотика"
-            class="dest-card__img"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="600"
-          >
-          <div class="dest-card__overlay">
-            <div class="dest-card__rating">★ 4.9</div>
-            <h3 class="dest-card__title">Малайзия</h3>
-            <p class="dest-card__desc">Башни Петронас, джунгли и пляжи</p>
-            <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
-          </div>
-          <span class="dest-card__tag">🔥 Хит сезона</span>
-        </article>
+          <article class="dest-card reveal-scale">
+            <img
+              src="images/turkey.jpg"
+              alt="Турция — Стамбул и лазурное побережье"
+              class="dest-card__img"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="600"
+            />
+            <div class="dest-card__overlay">
+              <div class="dest-card__rating">★ 4.8</div>
+              <h3 class="dest-card__title">Турция</h3>
+              <p class="dest-card__desc">Стамбул, всё включено и тёплое море</p>
+              <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
+            </div>
+          </article>
 
-        <article class="dest-card reveal-scale">
-          <img
-            src="images/turkey.jpg"
-            alt="Турция — Стамбул и лазурное побережье"
-            class="dest-card__img"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="600"
-          >
-          <div class="dest-card__overlay">
-            <div class="dest-card__rating">★ 4.8</div>
-            <h3 class="dest-card__title">Турция</h3>
-            <p class="dest-card__desc">Стамбул, всё включено и тёплое море</p>
-            <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
-          </div>
-        </article>
+          <article class="dest-card reveal-scale">
+            <img
+              src="images/egypt2.jpg/5336804127700358055.jpg"
+              alt="Вьетнам — бухта Халонг и тропические пляжи"
+              class="dest-card__img"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="600"
+            />
+            <div class="dest-card__overlay">
+              <div class="dest-card__rating">★ 4.8</div>
+              <h3 class="dest-card__title">Вьетнам</h3>
+              <p class="dest-card__desc">Экзотика, природа и доступные цены</p>
+              <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
+            </div>
+          </article>
 
-        <article class="dest-card reveal-scale">
-          <img
-            src="images/egypt2.jpg/5336804127700358055.jpg"
-            alt="Вьетнам — бухта Халонг и тропические пляжи"
-            class="dest-card__img"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="600"
-          >
-          <div class="dest-card__overlay">
-            <div class="dest-card__rating">★ 4.8</div>
-            <h3 class="dest-card__title">Вьетнам</h3>
-            <p class="dest-card__desc">Экзотика, природа и доступные цены</p>
-            <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
-          </div>
-        </article>
+          <article class="dest-card reveal-scale">
+            <img
+              src="images/thailand.jpg"
+              alt="Таиланд — тропический рай для семьи"
+              class="dest-card__img"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="600"
+            />
+            <div class="dest-card__overlay">
+              <div class="dest-card__rating">★ 4.9</div>
+              <h3 class="dest-card__title">Таиланд</h3>
+              <p class="dest-card__desc">Тропический рай и гостеприимство</p>
+              <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
+            </div>
+            <span class="dest-card__tag">💰 Выгодно</span>
+          </article>
 
-        <article class="dest-card reveal-scale">
-          <img
-            src="images/thailand.jpg"
-            alt="Таиланд — тропический рай для семьи"
-            class="dest-card__img"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="600"
-          >
-          <div class="dest-card__overlay">
-            <div class="dest-card__rating">★ 4.9</div>
-            <h3 class="dest-card__title">Таиланд</h3>
-            <p class="dest-card__desc">Тропический рай и гостеприимство</p>
-            <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
-          </div>
-          <span class="dest-card__tag">💰 Выгодно</span>
-        </article>
+          <article class="dest-card reveal-scale">
+            <img
+              src="images/egypt2.jpg/5337280933494723501.jpg"
+              alt="Египет — пирамиды и Красное море"
+              class="dest-card__img"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="600"
+            />
+            <div class="dest-card__overlay">
+              <div class="dest-card__rating">★ 4.7</div>
+              <h3 class="dest-card__title">Египет</h3>
+              <p class="dest-card__desc">Пирамиды, дайвинг и тёплое море</p>
+              <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
+            </div>
+          </article>
 
-        <article class="dest-card reveal-scale">
-          <img
-            src="images/egypt2.jpg/5337280933494723501.jpg"
-            alt="Египет — пирамиды и Красное море"
-            class="dest-card__img"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="600"
-          >
-          <div class="dest-card__overlay">
-            <div class="dest-card__rating">★ 4.7</div>
-            <h3 class="dest-card__title">Египет</h3>
-            <p class="dest-card__desc">Пирамиды, дайвинг и тёплое море</p>
-            <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
-          </div>
-        </article>
+          <article class="dest-card reveal-scale" style="height: auto; aspect-ratio: 1 / 1">
+            <img
+              src="images/egypt2.jpg/maldivi23.jpg"
+              alt="Мальдивы — кристально чистое море"
+              class="dest-card__img"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="600"
+            />
+            <div class="dest-card__overlay">
+              <div class="dest-card__rating">★ 5.0</div>
+              <h3 class="dest-card__title">Мальдивы</h3>
+              <p class="dest-card__desc">Райские острова и лазурный океан</p>
+              <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
+            </div>
+            <span class="dest-card__tag">✨ Премиум</span>
+          </article>
 
-        <article class="dest-card reveal-scale" style="height: auto; aspect-ratio: 1 / 1;">
-          <img
-            src="images/egypt2.jpg/maldivi23.jpg"
-            alt="Мальдивы — кристально чистое море"
-            class="dest-card__img"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="600"
-          >
-          <div class="dest-card__overlay">
-            <div class="dest-card__rating">★ 5.0</div>
-            <h3 class="dest-card__title">Мальдивы</h3>
-            <p class="dest-card__desc">Райские острова и лазурный океан</p>
-            <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
-          </div>
-          <span class="dest-card__tag">✨ Премиум</span>
-        </article>
+          <article class="dest-card reveal-scale" style="height: auto; aspect-ratio: 1 / 1">
+            <img
+              src="images/egypt2.jpg/uae333.jpg"
+              alt="ОАЭ — роскошь и современность"
+              class="dest-card__img"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="600"
+            />
+            <div class="dest-card__overlay">
+              <div class="dest-card__rating">★ 4.8</div>
+              <h3 class="dest-card__title">ОАЭ</h3>
+              <p class="dest-card__desc">Роскошь, шопинг и парки развлечений</p>
+              <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
+            </div>
+          </article>
 
-        <article class="dest-card reveal-scale" style="height: auto; aspect-ratio: 1 / 1;">
-          <img
-            src="images/egypt2.jpg/uae333.jpg"
-            alt="ОАЭ — роскошь и современность"
-            class="dest-card__img"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="600"
-          >
-          <div class="dest-card__overlay">
-            <div class="dest-card__rating">★ 4.8</div>
-            <h3 class="dest-card__title">ОАЭ</h3>
-            <p class="dest-card__desc">Роскошь, шопинг и парки развлечений</p>
-            <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
-          </div>
-        </article>
+          <article class="dest-card reveal-scale" style="height: auto; aspect-ratio: 1 / 1">
+            <img
+              src="images/sri-lanka.jpg"
+              alt="Шри-Ланка — чайные плантации и океан"
+              class="dest-card__img"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="600"
+            />
+            <div class="dest-card__overlay">
+              <div class="dest-card__rating">★ 4.7</div>
+              <h3 class="dest-card__title">Шри-Ланка</h3>
+              <p class="dest-card__desc">Чайные плантации, слоны и океан</p>
+              <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
+            </div>
+          </article>
 
-        <article class="dest-card reveal-scale" style="height: auto; aspect-ratio: 1 / 1;">
-          <img
-            src="images/sri-lanka.jpg"
-            alt="Шри-Ланка — чайные плантации и океан"
-            class="dest-card__img"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="600"
-          >
-          <div class="dest-card__overlay">
-            <div class="dest-card__rating">★ 4.7</div>
-            <h3 class="dest-card__title">Шри-Ланка</h3>
-            <p class="dest-card__desc">Чайные плантации, слоны и океан</p>
-            <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
-          </div>
-        </article>
+          <article class="dest-card reveal-scale">
+            <img
+              src="images/bali.jpg"
+              alt="Бали — тропический остров мечты"
+              class="dest-card__img"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="600"
+            />
+            <div class="dest-card__overlay">
+              <div class="dest-card__rating">★ 4.9</div>
+              <h3 class="dest-card__title">Бали</h3>
+              <p class="dest-card__desc">Тропический остров мечты и храмы</p>
+              <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
+            </div>
+            <span class="dest-card__tag">🌺 Новинка</span>
+          </article>
 
-        <article class="dest-card reveal-scale">
-          <img
-            src="images/bali.jpg"
-            alt="Бали — тропический остров мечты"
-            class="dest-card__img"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="600"
-          >
-          <div class="dest-card__overlay">
-            <div class="dest-card__rating">★ 4.9</div>
-            <h3 class="dest-card__title">Бали</h3>
-            <p class="dest-card__desc">Тропический остров мечты и храмы</p>
-            <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
-          </div>
-          <span class="dest-card__tag">🌺 Новинка</span>
-        </article>
-
-        <article class="dest-card reveal-scale">
-          <img
-            src="images/greece.jpg"
-            alt="Греция — Санторини и лазурное море"
-            class="dest-card__img"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="600"
-          >
-          <div class="dest-card__overlay">
-            <div class="dest-card__rating">★ 4.8</div>
-            <h3 class="dest-card__title">Греция</h3>
-            <p class="dest-card__desc">Санторини, история и лазурное море</p>
-            <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
-          </div>
-        </article>
+          <article class="dest-card reveal-scale">
+            <img
+              src="images/greece.jpg"
+              alt="Греция — Санторини и лазурное море"
+              class="dest-card__img"
+              loading="lazy"
+              decoding="async"
+              width="800"
+              height="600"
+            />
+            <div class="dest-card__overlay">
+              <div class="dest-card__rating">★ 4.8</div>
+              <h3 class="dest-card__title">Греция</h3>
+              <p class="dest-card__desc">Санторини, история и лазурное море</p>
+              <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="dest-card__btn">Узнать подробнее →</a>
+            </div>
+          </article>
           <article class="dest-card reveal-scale">
             <img
               src="images/egypt2.jpg/hainan2.jpg"
@@ -546,7 +560,7 @@
               decoding="async"
               width="800"
               height="600"
-            >
+            />
             <div class="dest-card__overlay">
               <div class="dest-card__rating">★ 4.8</div>
               <h3 class="dest-card__title">Хайнань</h3>
@@ -555,317 +569,320 @@
             </div>
             <span class="dest-card__tag">🌴 Экзотика</span>
           </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- IMAGE DIVIDER -->
-  <section class="img-divider" aria-hidden="true">
-    <div class="img-divider__bg" style="background-image: url('images/why-us.jpg');"></div>
-    <div class="img-divider__overlay">
-      <p class="img-divider__text">✈ Более <strong>45 стран</strong> открыты для вашей семьи</p>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="section section--alt" id="reviews">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__tag">💬 Отзывы</div>
-        <h2 class="section__title">Что говорят наши семьи</h2>
-        <p class="section__subtitle">
-          Реальные истории от реальных семей, которые путешествовали с нами
-        </p>
-      </div>
-
-      <div class="reviews__grid">
-        <article class="review-card review-card--featured reveal">
-          <div class="review-card__quote">"</div>
-          <div class="review-card__stars">★★★★★</div>
-          <p class="review-card__text">
-            Лучший отдых в нашей жизни! Дети (3 и 7 лет) были в восторге каждую минуту. Всё было продумано идеально — от детского меню до экскурсий. Муж впервые за 5 лет по-настоящему отдохнул!
-          </p>
-          <div class="review-card__author">
-            <div class="review-card__avatar">АК</div>
-            <div>
-              <div class="review-card__name">Анна Козлова</div>
-              <div class="review-card__role">Мама двоих детей</div>
-            </div>
-            <div class="review-card__destination">🇹🇷 Турция 2025</div>
-          </div>
-        </article>
-
-        <article class="review-card reveal">
-          <div class="review-card__quote">"</div>
-          <div class="review-card__stars">★★★★★</div>
-          <p class="review-card__text">
-            Путешествовали с бабушкой и дедушкой — волнений было много. Но Magic Voyage учли всё: удобный трансфер, номера на первом этаже, спокойный темп экскурсий. Все поколения довольны!
-          </p>
-          <div class="review-card__author">
-            <div class="review-card__avatar">ДМ</div>
-            <div>
-              <div class="review-card__name">Дмитрий Морозов</div>
-              <div class="review-card__role">Семья из 6 человек</div>
-            </div>
-            <div class="review-card__destination">🇮🇹 Италия 2025</div>
-          </div>
-        </article>
-
-        <article class="review-card reveal">
-          <div class="review-card__quote">"</div>
-          <div class="review-card__stars">★★★★★</div>
-          <p class="review-card__text">
-            Подросток не хотел ехать с родителями, но Magic Voyage нашли отель с сёрфингом и скалодромом. Сын сказал, что это лучшие каникулы! Теперь сам просит поехать снова.
-          </p>
-          <div class="review-card__author">
-            <div class="review-card__avatar">ЕС</div>
-            <div>
-              <div class="review-card__name">Елена Соколова</div>
-              <div class="review-card__role">Мама подростка</div>
-            </div>
-            <div class="review-card__destination">🇪🇸 Испания 2025</div>
-          </div>
-        </article>
-
-        <article class="review-card reveal">
-          <div class="review-card__quote">"</div>
-          <div class="review-card__stars">★★★★★</div>
-          <p class="review-card__text">
-            Четвёртый раз бронируем через Magic Voyage. Каждый раз удивляют! В этот раз — круиз по Средиземноморью. Детский клуб на корабле — просто космос. Рекомендуем всем знакомым!
-          </p>
-          <div class="review-card__author">
-            <div class="review-card__avatar">ИП</div>
-            <div>
-              <div class="review-card__name">Игорь и Полина</div>
-              <div class="review-card__role">Постоянные клиенты</div>
-            </div>
-            <div class="review-card__destination">🚢 Круиз 2025</div>
-          </div>
-        </article>
-
-        <article class="review-card reveal">
-          <div class="review-card__quote">"</div>
-          <div class="review-card__stars">★★★★★</div>
-          <p class="review-card__text">
-            Первый раз летели с годовалым малышом — было страшно. Magic Voyage подобрали отель с детской кроваткой, стерилизатором и даже коляской на месте. Мы просто приехали и отдыхали. Спасибо за заботу!
-          </p>
-          <div class="review-card__author">
-            <div class="review-card__avatar">МА</div>
-            <div>
-              <div class="review-card__name">Марина Алиева</div>
-              <div class="review-card__role">Мама малыша</div>
-            </div>
-            <div class="review-card__destination">🇹🇭 Таиланд 2025</div>
-          </div>
-        </article>
-      </div>
-
-      <div class="reviews__summary reveal">
-        <div class="reviews__summary-item">
-          <span class="reviews__summary-number">4.9</span>
-          <span class="reviews__summary-stars">★★★★★</span>
-          <span class="reviews__summary-label">Средняя оценка</span>
-        </div>
-        <div class="reviews__summary-divider"></div>
-        <div class="reviews__summary-item">
-          <span class="reviews__summary-number">70+</span>
-          <span class="reviews__summary-label">Отзывов от семей</span>
-        </div>
-        <div class="reviews__summary-divider"></div>
-        <div class="reviews__summary-item">
-          <span class="reviews__summary-number">98%</span>
-          <span class="reviews__summary-label">Рекомендуют нас</span>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ -->
-  <section class="section" id="faq">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__tag">❓ Вопросы</div>
-        <h2 class="section__title">Часто задаваемые вопросы</h2>
-        <p class="section__subtitle">
-          Ответы на самые популярные вопросы от семей, планирующих путешествие
-        </p>
+    <!-- IMAGE DIVIDER -->
+    <section class="img-divider" aria-hidden="true">
+      <div class="img-divider__bg" style="background-image: url(&quot;images/why-us.jpg&quot;)"></div>
+      <div class="img-divider__overlay">
+        <p class="img-divider__text">✈ Более <strong>45 стран</strong> открыты для вашей семьи</p>
       </div>
+    </section>
 
-      <div class="faq__list">
-        <div class="faq-item reveal">
-          <button class="faq-item__question" aria-expanded="false">
-            С какого возраста можно брать ребёнка в путешествие?
-            <span class="faq-item__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-item__answer" role="region">
-            <div class="faq-item__answer-inner">
-              Мы организуем путешествия для семей с детьми от 6 месяцев! Для малышей подбираем отели с детской инфраструктурой, удобным пляжем и медицинским пунктом. У нас есть специальные программы для самых маленьких путешественников.
-            </div>
-          </div>
+    <!-- TESTIMONIALS -->
+    <section class="section section--alt" id="reviews">
+      <div class="container">
+        <div class="section__header reveal">
+          <div class="section__tag">💬 Отзывы</div>
+          <h2 class="section__title">Что говорят наши семьи</h2>
+          <p class="section__subtitle">Реальные истории от реальных семей, которые путешествовали с нами</p>
         </div>
 
-        <div class="faq-item reveal">
-          <button class="faq-item__question" aria-expanded="false">
-            Включена ли страховка в стоимость тура?
-            <span class="faq-item__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-item__answer" role="region">
-            <div class="faq-item__answer-inner">
-              Да! В каждый наш тур включена расширенная медицинская страховка для всей семьи. Она покрывает экстренные ситуации, госпитализацию и эвакуацию.
+        <div class="reviews__grid">
+          <article class="review-card review-card--featured reveal">
+            <div class="review-card__quote">"</div>
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">
+              Лучший отдых в нашей жизни! Дети (3 и 7 лет) были в восторге каждую минуту. Всё было продумано идеально — от детского меню до
+              экскурсий. Муж впервые за 5 лет по-настоящему отдохнул!
+            </p>
+            <div class="review-card__author">
+              <div class="review-card__avatar">АК</div>
+              <div>
+                <div class="review-card__name">Анна Козлова</div>
+                <div class="review-card__role">Мама двоих детей</div>
+              </div>
+              <div class="review-card__destination">🇹🇷 Турция 2025</div>
             </div>
-          </div>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="review-card__quote">"</div>
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">
+              Путешествовали с бабушкой и дедушкой — волнений было много. Но Magic Voyage учли всё: удобный трансфер, номера на первом
+              этаже, спокойный темп экскурсий. Все поколения довольны!
+            </p>
+            <div class="review-card__author">
+              <div class="review-card__avatar">ДМ</div>
+              <div>
+                <div class="review-card__name">Дмитрий Морозов</div>
+                <div class="review-card__role">Семья из 6 человек</div>
+              </div>
+              <div class="review-card__destination">🇮🇹 Италия 2025</div>
+            </div>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="review-card__quote">"</div>
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">
+              Подросток не хотел ехать с родителями, но Magic Voyage нашли отель с сёрфингом и скалодромом. Сын сказал, что это лучшие
+              каникулы! Теперь сам просит поехать снова.
+            </p>
+            <div class="review-card__author">
+              <div class="review-card__avatar">ЕС</div>
+              <div>
+                <div class="review-card__name">Елена Соколова</div>
+                <div class="review-card__role">Мама подростка</div>
+              </div>
+              <div class="review-card__destination">🇪🇸 Испания 2025</div>
+            </div>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="review-card__quote">"</div>
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">
+              Четвёртый раз бронируем через Magic Voyage. Каждый раз удивляют! В этот раз — круиз по Средиземноморью. Детский клуб на
+              корабле — просто космос. Рекомендуем всем знакомым!
+            </p>
+            <div class="review-card__author">
+              <div class="review-card__avatar">ИП</div>
+              <div>
+                <div class="review-card__name">Игорь и Полина</div>
+                <div class="review-card__role">Постоянные клиенты</div>
+              </div>
+              <div class="review-card__destination">🚢 Круиз 2025</div>
+            </div>
+          </article>
+
+          <article class="review-card reveal">
+            <div class="review-card__quote">"</div>
+            <div class="review-card__stars">★★★★★</div>
+            <p class="review-card__text">
+              Первый раз летели с годовалым малышом — было страшно. Magic Voyage подобрали отель с детской кроваткой, стерилизатором и даже
+              коляской на месте. Мы просто приехали и отдыхали. Спасибо за заботу!
+            </p>
+            <div class="review-card__author">
+              <div class="review-card__avatar">МА</div>
+              <div>
+                <div class="review-card__name">Марина Алиева</div>
+                <div class="review-card__role">Мама малыша</div>
+              </div>
+              <div class="review-card__destination">🇹🇭 Таиланд 2025</div>
+            </div>
+          </article>
         </div>
 
-        <div class="faq-item reveal">
-          <button class="faq-item__question" aria-expanded="false">
-            Можно ли менять программу тура на месте?
-            <span class="faq-item__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-item__answer" role="region">
-            <div class="faq-item__answer-inner">
-              Конечно! Наши программы гибкие. Если малыш устал — пропускаем экскурсию. Хотите вместо музея на аквапарк — легко перестроим день. Наш координатор на месте всегда на связи и поможет скорректировать план.
-            </div>
+        <div class="reviews__summary reveal">
+          <div class="reviews__summary-item">
+            <span class="reviews__summary-number">4.9</span>
+            <span class="reviews__summary-stars">★★★★★</span>
+            <span class="reviews__summary-label">Средняя оценка</span>
           </div>
-        </div>
-
-        <div class="faq-item reveal">
-          <button class="faq-item__question" aria-expanded="false">
-            Как происходит оплата?
-            <span class="faq-item__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-item__answer" role="region">
-            <div class="faq-item__answer-inner">
-              Мы предлагаем удобную рассрочку: предоплата 30%, остаток — за 2 недели до вылета. Принимаем банковские карты, переводы. Никаких скрытых платежей — итоговая цена фиксируется в договоре.
-              <a href="payment.html" class="faq-pay-link">💳 Оплатить онлайн →</a>
-            </div>
+          <div class="reviews__summary-divider"></div>
+          <div class="reviews__summary-item">
+            <span class="reviews__summary-number">70+</span>
+            <span class="reviews__summary-label">Отзывов от семей</span>
           </div>
-        </div>
-
-        <div class="faq-item reveal">
-          <button class="faq-item__question" aria-expanded="false">
-            Помогаете ли вы с визами?
-            <span class="faq-item__icon" aria-hidden="true">+</span>
-          </button>
-          <div class="faq-item__answer" role="region">
-            <div class="faq-item__answer-inner">
-              Да, полное визовое сопровождение входит в наш сервис. Мы подготовим все документы, заполним анкеты, запишем в визовый центр и проконтролируем процесс. Для семей с детьми — помощь с нотариальными доверенностями.
-            </div>
+          <div class="reviews__summary-divider"></div>
+          <div class="reviews__summary-item">
+            <span class="reviews__summary-number">98%</span>
+            <span class="reviews__summary-label">Рекомендуют нас</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CONTACT -->
-  <section class="section section--alt" id="contact">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__tag">📞 Контакты</div>
-        <h2 class="section__title">Свяжитесь с нами</h2>
-        <p class="section__subtitle">
-          Позвоните или напишите, и мы поможем спланировать идеальное путешествие для вашей семьи
-        </p>
-      </div>
+    <!-- FAQ -->
+    <section class="section" id="faq">
+      <div class="container">
+        <div class="section__header reveal">
+          <div class="section__tag">❓ Вопросы</div>
+          <h2 class="section__title">Часто задаваемые вопросы</h2>
+          <p class="section__subtitle">Ответы на самые популярные вопросы от семей, планирующих путешествие</p>
+        </div>
 
-      <div class="contact__grid">
-        <div class="contact__info reveal-left">
-          <div class="contact__info-item">
-            <div class="contact__info-icon">📍</div>
-            <div>
-              <div class="contact__info-title">Наш офис</div>
-              <div class="contact__info-text">г. Ташкент, район Юнусабад, Ц5, массив Киёт 68</div>
+        <div class="faq__list">
+          <div class="faq-item reveal">
+            <button class="faq-item__question" aria-expanded="false">
+              С какого возраста можно брать ребёнка в путешествие?
+              <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" role="region">
+              <div class="faq-item__answer-inner">
+                Мы организуем путешествия для семей с детьми от 6 месяцев! Для малышей подбираем отели с детской инфраструктурой, удобным
+                пляжем и медицинским пунктом. У нас есть специальные программы для самых маленьких путешественников.
+              </div>
             </div>
           </div>
-          <div class="contact__info-item">
-            <div class="contact__info-icon">📞</div>
-            <div>
-              <div class="contact__info-title">Телефон</div>
-              <div class="contact__info-text">+998 94 630 14 25</div>
-              <div class="contact__info-text">+998 94 601 85 55</div>
+
+          <div class="faq-item reveal">
+            <button class="faq-item__question" aria-expanded="false">
+              Включена ли страховка в стоимость тура?
+              <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" role="region">
+              <div class="faq-item__answer-inner">
+                Да! В каждый наш тур включена расширенная медицинская страховка для всей семьи. Она покрывает экстренные ситуации,
+                госпитализацию и эвакуацию.
+              </div>
             </div>
           </div>
-          <div class="contact__info-item">
-            <div class="contact__info-icon">🕐</div>
-            <div>
-              <div class="contact__info-title">Режим работы</div>
-              <div class="contact__info-text">Пн–Пт: 10:00–19:00 · Сб: 10:00–17:00</div>
-              <div class="contact__info-text">Вс: выходной</div>
+
+          <div class="faq-item reveal">
+            <button class="faq-item__question" aria-expanded="false">
+              Можно ли менять программу тура на месте?
+              <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" role="region">
+              <div class="faq-item__answer-inner">
+                Конечно! Наши программы гибкие. Если малыш устал — пропускаем экскурсию. Хотите вместо музея на аквапарк — легко перестроим
+                день. Наш координатор на месте всегда на связи и поможет скорректировать план.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-item__question" aria-expanded="false">
+              Как происходит оплата?
+              <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" role="region">
+              <div class="faq-item__answer-inner">
+                Мы предлагаем удобную рассрочку: предоплата 30%, остаток — за 2 недели до вылета. Принимаем банковские карты, переводы.
+                Никаких скрытых платежей — итоговая цена фиксируется в договоре.
+                <a href="payment.html" class="faq-pay-link">💳 Оплатить онлайн →</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item reveal">
+            <button class="faq-item__question" aria-expanded="false">
+              Помогаете ли вы с визами?
+              <span class="faq-item__icon" aria-hidden="true">+</span>
+            </button>
+            <div class="faq-item__answer" role="region">
+              <div class="faq-item__answer-inner">
+                Да, полное визовое сопровождение входит в наш сервис. Мы подготовим все документы, заполним анкеты, запишем в визовый центр
+                и проконтролируем процесс. Для семей с детьми — помощь с нотариальными доверенностями.
+              </div>
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="contact__welcome-bg reveal-right">
-          <div class="contact__welcome-text">Добро пожаловать в наш офис!</div>
-          <a href="payment.html" class="contact__pay-btn">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
-              <line x1="1" y1="10" x2="23" y2="10"></line>
-            </svg>
-            Оплатить онлайн
-          </a>
+    <!-- CONTACT -->
+    <section class="section section--alt" id="contact">
+      <div class="container">
+        <div class="section__header reveal">
+          <div class="section__tag">📞 Контакты</div>
+          <h2 class="section__title">Свяжитесь с нами</h2>
+          <p class="section__subtitle">Позвоните или напишите, и мы поможем спланировать идеальное путешествие для вашей семьи</p>
         </div>
 
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer" role="contentinfo">
-    <div class="container">
-      <div class="footer__grid">
-        <div>
-          <div class="footer__logo">
-            <img src="images/egypt2.jpg/logo-clean.png" alt="MAGIC VOYAGE" class="footer__logo-img" width="770" height="343">
-            <span>MAGIC VOYAGE</span>
+        <div class="contact__grid">
+          <div class="contact__info reveal-left">
+            <div class="contact__info-item">
+              <div class="contact__info-icon">📍</div>
+              <div>
+                <div class="contact__info-title">Наш офис</div>
+                <div class="contact__info-text">г. Ташкент, район Юнусабад, Ц5, массив Киёт 68</div>
+              </div>
+            </div>
+            <div class="contact__info-item">
+              <div class="contact__info-icon">📞</div>
+              <div>
+                <div class="contact__info-title">Телефон</div>
+                <div class="contact__info-text">+998 94 630 14 25</div>
+                <div class="contact__info-text">+998 94 601 85 55</div>
+              </div>
+            </div>
+            <div class="contact__info-item">
+              <div class="contact__info-icon">🕐</div>
+              <div>
+                <div class="contact__info-title">Режим работы</div>
+                <div class="contact__info-text">Пн–Пт: 10:00–19:00 · Сб: 10:00–17:00</div>
+                <div class="contact__info-text">Вс: выходной</div>
+              </div>
+            </div>
           </div>
-          <p class="footer__desc">
-            Создаём волшебные семейные путешествия. Более 100 счастливых семей доверяют нам свой отдых.
-          </p>
-          <div class="footer__social">
-            <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="footer__social-link" aria-label="Telegram">💬</a>
-            <a href="#" class="footer__social-link" aria-label="ВКонтакте">🔵</a>
-            <a href="#" class="footer__social-link" aria-label="YouTube">▶️</a>
-            <a href="#" class="footer__social-link" aria-label="Instagram">📷</a>
+
+          <div class="contact__welcome-bg reveal-right">
+            <div class="contact__welcome-text">Добро пожаловать в наш офис!</div>
+            <a href="payment.html" class="contact__pay-btn">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+                <line x1="1" y1="10" x2="23" y2="10"></line>
+              </svg>
+              Оплатить онлайн
+            </a>
           </div>
         </div>
-        <div>
-          <h3 class="footer__heading">Навигация</h3>
-          <a href="#about" class="footer__link">О нас</a>
-          <a href="#services" class="footer__link">Услуги</a>
-          <a href="#destinations" class="footer__link">Направления</a>
-          <a href="#reviews" class="footer__link">Отзывы</a>
-          <a href="#contact" class="footer__link">Контакты</a>
-        </div>
-        <div>
-          <h3 class="footer__heading">Направления</h3>
-          <a href="#destinations" class="footer__link">Малайзия</a>
-          <a href="#destinations" class="footer__link">Турция</a>
-          <a href="#destinations" class="footer__link">Вьетнам</a>
-          <a href="#destinations" class="footer__link">Таиланд</a>
-          <a href="#destinations" class="footer__link">Египет</a>
-          <a href="#destinations" class="footer__link">Мальдивы</a>
-          <a href="#destinations" class="footer__link">ОАЭ</a>
-          <a href="#destinations" class="footer__link">Шри-Ланка</a>
-          <a href="#destinations" class="footer__link">Бали</a>
-          <a href="#destinations" class="footer__link">Греция</a>
-        </div>
-        <div>
-          <h3 class="footer__heading">Контакты</h3>
-          <a href="tel:+998946301425" class="footer__link">📞 +998 94 630 14 25</a>
-          <a href="tel:+998946018555" class="footer__link">📞 +998 94 601 85 55</a>
-          <p class="footer__link">📍 Ташкент, Юнусабад, Ц5</p>
-          <p class="footer__link">🕐 Пн–Пт: 10–19 · Сб: 10–17 · Вс: вых.</p>
-        </div>
       </div>
-      <div class="footer__bottom">
-        © 2018–2026 MAGIC VOYAGE. Все права защищены. Создано с ❤️ для семей.
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <div class="footer__grid">
+          <div>
+            <div class="footer__logo">
+              <img src="images/egypt2.jpg/logo-clean.png" alt="MAGIC VOYAGE" class="footer__logo-img" width="770" height="343" />
+              <span>MAGIC VOYAGE</span>
+            </div>
+            <p class="footer__desc">Создаём волшебные семейные путешествия. Более 100 счастливых семей доверяют нам свой отдых.</p>
+          </div>
+          <div>
+            <h3 class="footer__heading">Навигация</h3>
+            <a href="#about" class="footer__link">О нас</a>
+            <a href="#services" class="footer__link">Услуги</a>
+            <a href="#destinations" class="footer__link">Направления</a>
+            <a href="#reviews" class="footer__link">Отзывы</a>
+            <a href="#contact" class="footer__link">Контакты</a>
+          </div>
+          <div>
+            <h3 class="footer__heading">Направления</h3>
+            <a href="#destinations" class="footer__link">Малайзия</a>
+            <a href="#destinations" class="footer__link">Турция</a>
+            <a href="#destinations" class="footer__link">Вьетнам</a>
+            <a href="#destinations" class="footer__link">Таиланд</a>
+            <a href="#destinations" class="footer__link">Египет</a>
+            <a href="#destinations" class="footer__link">Мальдивы</a>
+            <a href="#destinations" class="footer__link">ОАЭ</a>
+            <a href="#destinations" class="footer__link">Шри-Ланка</a>
+            <a href="#destinations" class="footer__link">Бали</a>
+            <a href="#destinations" class="footer__link">Греция</a>
+          </div>
+          <div>
+            <h3 class="footer__heading">Контакты</h3>
+            <a href="tel:+998946301425" class="footer__link">📞 +998 94 630 14 25</a>
+            <a href="tel:+998946018555" class="footer__link">📞 +998 94 601 85 55</a>
+            <p class="footer__link">📍 Ташкент, Юнусабад, Ц5</p>
+            <p class="footer__link">🕐 Пн–Пт: 10–19 · Сб: 10–17 · Вс: вых.</p>
+            <a href="https://t.me/Luba262" target="_blank" rel="noopener" class="footer__link">💬 Telegram</a>
+          </div>
+        </div>
+        <div class="footer__bottom">© 2018–2026 MAGIC VOYAGE. Все права защищены. Создано с ❤️ для семей.</div>
       </div>
-    </div>
-  </footer>
+    </footer>
 
-  <!-- Back to top -->
-  <button class="back-top" id="backTop" aria-label="Наверх">↑</button>
+    <!-- Back to top -->
+    <button class="back-top" id="backTop" aria-label="Наверх">↑</button>
 
-  <script src="script.js" defer></script>
-</body>
+    <script src="script.js" defer></script>
+  </body>
 </html>
