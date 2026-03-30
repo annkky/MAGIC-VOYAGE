@@ -1,3 +1,71 @@
+/* ===== КНОПКИ ОПЛАТЫ — лендинг ===== */
+
+/* Кнопка в герое */
+.btn--pay {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #3b9fd8, #1b3a5c);
+  color: #fff !important;
+  font-weight: 700;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(59,159,216,0.4);
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.btn--pay:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 48px rgba(59,159,216,0.55);
+}
+
+/* Ссылка-кнопка внутри ответа FAQ */
+.faq-pay-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #3b9fd8, #2a7fb5);
+  color: #fff;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(59,159,216,0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.faq-pay-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(59,159,216,0.5);
+}
+
+/* Кнопка оплаты в секции контактов */
+.contact__pay-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #3b9fd8, #2a7fb5);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  text-decoration: none;
+  box-shadow: 0 8px 32px rgba(59,159,216,0.45);
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1), box-shadow 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+.contact__pay-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 48px rgba(59,159,216,0.6);
+}
+
 /* Специальный стиль для новой широкой картинки "Музей будущего" */
 .gallery-mosaic__item--future {
   grid-column: span 1;

@@ -268,27 +268,41 @@
       color: var(--color-text);
     }
 
-    /* Ссылка назад */
+    /* ===== КНОПКА НАЗАД — внутри шапки карточки ===== */
     .payment-back {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      color: var(--color-accent);
-      font-size: 0.85rem;
+      gap: 7px;
+      align-self: flex-start;         /* прижать влево */
+      padding: 8px 16px 8px 12px;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1.5px solid rgba(255, 255, 255, 0.35);
+      border-radius: var(--radius-full);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 600;
       text-decoration: none;
-      padding: 20px 40px 0;
-      transition: color var(--transition);
+      letter-spacing: 0.02em;
+      transition: background var(--transition), border-color var(--transition), transform var(--transition);
+      margin-bottom: 18px;            /* отступ до логотипа */
     }
 
     .payment-back:hover {
-      color: #fff;
+      background: rgba(255, 255, 255, 0.28);
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: translateX(-3px);
+    }
+
+    .payment-card__header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     /* ===== АДАПТИВ ===== */
     @media (max-width: 520px) {
-      .payment-card__header { padding: 24px 24px 20px; }
-      .payment-card__body   { padding: 28px 24px 32px; }
-      .payment-back         { padding: 16px 24px 0; }
+      .payment-card__header { padding: 20px 20px 18px; }
+      .payment-card__body   { padding: 24px 20px 28px; }
     }
   </style>
 </head>
@@ -325,18 +339,19 @@
 
   <!-- СТРАНИЦА ОПЛАТЫ -->
   <main class="payment-page">
-    <a href="index.html" class="payment-back" aria-label="Вернуться на главную">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="15 18 9 12 15 6"></polyline>
-      </svg>
-      Вернуться на главную
-    </a>
-
     <div class="payment-page__inner">
       <div class="payment-card">
 
         <!-- Шапка карточки -->
         <div class="payment-card__header">
+          <!-- Кнопка «Назад» в шапке — хорошо видна на тёмном фоне -->
+          <a href="index.html" class="payment-back" aria-label="Вернуться на главную">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            На главную
+          </a>
+
           <div class="payment-card__logo">
             <img src="images/egypt2.jpg/logo-1.svg" alt="MAGIC VOYAGE">
           </div>
@@ -445,6 +460,7 @@
       </div>
     </div>
   </main>
+
 
   <script src="script.js"></script>
   <script>
