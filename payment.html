@@ -137,23 +137,6 @@
       user-select: none;
     }
 
-    /* Валюта — select рядом с суммой */
-    .amount-row {
-      display: flex;
-      gap: 10px;
-    }
-
-    .amount-row .amount-wrapper {
-      flex: 1;
-    }
-
-    .amount-row select {
-      width: 90px;
-      padding: 14px 10px;
-      text-align: center;
-      font-weight: 600;
-      cursor: pointer;
-    }
 
     /* Ошибка валидации */
     .form-group__error {
@@ -377,29 +360,23 @@
               <span class="form-group__error">Укажите назначение платежа</span>
             </div>
 
-            <!-- Сумма + валюта -->
+            <!-- Сумма (только UZS) -->
             <div class="form-group" id="group-amount">
-              <label for="amount">Сумма к оплате</label>
-              <div class="amount-row">
-                <div class="amount-wrapper">
-                  <span class="amount-wrapper__currency" id="currencySymbol">$</span>
-                  <input
-                    type="number"
-                    id="amount"
-                    name="amount"
-                    placeholder="0.00"
-                    min="1"
-                    step="0.01"
-                    required
-                    inputmode="decimal"
-                  >
-                </div>
-                <select id="currency" name="currency" aria-label="Валюта">
-                  <option value="USD" selected>USD</option>
-                  <option value="UZS">UZS</option>
-                  <option value="RUB">RUB</option>
-                </select>
+              <label for="amount">Сумма к оплате (сум)</label>
+              <div class="amount-wrapper">
+                <span class="amount-wrapper__currency" id="currencySymbol">сум</span>
+                <input
+                  type="number"
+                  id="amount"
+                  name="amount"
+                  placeholder="0"
+                  min="1"
+                  step="1"
+                  required
+                  inputmode="numeric"
+                >
               </div>
+              <input type="hidden" name="currency" value="UZS">
               <span class="form-group__error">Введите корректную сумму (больше 0)</span>
             </div>
 
@@ -466,18 +443,8 @@
   <script>
     /* ===== ЛОГИКА ФОРМЫ ОПЛАТЫ ===== */
 
-    const form       = document.getElementById('paymentForm');
-    const payBtn     = document.getElementById('payBtn');
-    const currency   = document.getElementById('currency');
-    const symbol     = document.getElementById('currencySymbol');
-
-    // Символы для выбранных валют
-    const currencySymbols = { USD: '$', UZS: 'сум', RUB: '₽' };
-
-    // Обновляем символ при смене валюты
-    currency.addEventListener('change', () => {
-      symbol.textContent = currencySymbols[currency.value] || currency.value;
-    });
+    const form   = document.getElementById('paymentForm');
+    const payBtn = document.getElementById('payBtn');
 
     // Валидация одного поля
     function validateField(input, groupId, checkFn) {
