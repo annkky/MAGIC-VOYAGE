@@ -1,0 +1,153 @@
+<?php
+/**
+ * MAGIC VOYAGE — Обработчик платежа через OCTO Pay
+ * Одностадийная оплата (auto_capture = true)
+ *
+ * Документация: https://help.octo.uz/payment-via-web/one-stage.html
+ */
+
+// ===== НАСТРОЙКИ МАГАЗИНА =====
+// TODO: замените на реальные значения из личного кабинета OCTO Pay
+define('OCTO_SHOP_ID',  0);          // Ваш octo_shop_id
+define('OCTO_SECRET',   'YOUR_SECRET_HERE'); // Ваш octo_secret (никогда не передавать на фронтенд!)
+define('OCTO_API_URL',  'https://secure.octo.uz/prepare_payment');
+define('TEST_MODE',     true);       // true — тестовый режим, false — боевой
+
+// URL-адреса после оплаты (замените на реальный домен)
+define('BASE_URL',      'https://magicvoyage.uz');
+define('RETURN_URL',    BASE_URL . '/payment-success.html');
+define('FAIL_URL',      BASE_URL . '/payment-fail.html');
+define('NOTIFY_URL',    BASE_URL . '/payment-notify.php');
+
+// ===== ВХОДНЫЕ ДАННЫЕ =====
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: payment.html');
+    exit;
+}
+
+// Санитизация и валидация
+$description  = trim(htmlspecialchars($_POST['description']  ?? '', ENT_QUOTES, 'UTF-8'));
+$amount_raw   = $_POST['amount']      ?? '';
+$currency     = strtoupper(trim($_POST['currency']     ?? 'USD'));
+$client_name  = trim(htmlspecialchars($_POST['client_name']  ?? '', ENT_QUOTES, 'UTF-8'));
+$client_phone = trim(preg_replace('/[^\d+\s\-()]/', '', $_POST['client_phone'] ?? ''));
+
+// Валидация суммы
+$amount = filter_var($amount_raw, FILTER_VALIDATE_FLOAT);
+if ($amount === false || $amount <= 0) {
+    redirect_with_error('Некорректная сумма платежа.');
+}
+
+// Допустимые валюты
+$allowed_currencies = ['USD', 'UZS', 'RUB'];
+if (!in_array($currency, $allowed_currencies, true)) {
+    redirect_with_error('Недопустимая валюта.');
+}
+
+// Обязательные поля
+if (empty($description) || mb_strlen($description) < 3) {
+    redirect_with_error('Укажите назначение платежа.');
+}
+if (empty($client_name) || mb_strlen($client_name) < 2) {
+    redirect_with_error('Укажите ваше имя.');
+}
+if (empty($client_phone) || !preg_match('/^\+?[\d\s\-()]{7,20}$/', $client_phone)) {
+    redirect_with_error('Укажите корректный номер телефона.');
+}
+
+// ===== УНИКАЛЬНЫЙ ID ТРАНЗАКЦИИ =====
+$shop_transaction_id = 'MV-' . date('Ymd') . '-' . strtoupper(bin2hex(random_bytes(5)));
+
+// ===== ТЕЛО ЗАПРОСА К OCTO API =====
+$payload = [
+    'octo_shop_id'        => OCTO_SHOP_ID,
+    'octo_secret'         => OCTO_SECRET,
+    'shop_transaction_id' => $shop_transaction_id,
+    'init_time'           => date('Y-m-d H:i:s'),
+    'description'         => $description,
+    'total_sum'           => round($amount, 2),
+    'currency'            => $currency,
+    'auto_capture'        => true,   // одностадийная оплата — списание сразу
+    'return_url'          => RETURN_URL,
+    'notify_url'          => NOTIFY_URL,
+    'language'            => 'ru',
+    'ttl'                 => 15,     // форма оплаты действительна 15 минут
+    'user_data'           => [
+        'user_id'    => $shop_transaction_id,
+        'phone'      => $client_phone,
+        'full_name'  => $client_name,
+    ],
+];
+
+// Добавляем test-флаг только в тестовом режиме
+if (TEST_MODE) {
+    $payload['test'] = true;
+}
+
+// ===== ЗАПРОС К OCTO API =====
+$response = octo_request($payload);
+
+if ($response === null) {
+    redirect_with_error('Ошибка соединения с платёжным сервисом. Попробуйте позже.');
+}
+
+// Проверяем ответ
+if (isset($response['error']) && $response['error'] !== 0) {
+    $msg = $response['errMessage'] ?? 'Неизвестная ошибка OCTO Pay.';
+    redirect_with_error('Ошибка платёжной системы: ' . htmlspecialchars($msg, ENT_QUOTES, 'UTF-8'));
+}
+
+$pay_url = $response['data']['octo_pay_url'] ?? null;
+if (empty($pay_url)) {
+    redirect_with_error('Не удалось получить ссылку для оплаты.');
+}
+
+// ===== РЕДИРЕКТ НА СТРАНИЦУ ОПЛАТЫ OCTO =====
+header('Location: ' . $pay_url);
+exit;
+
+
+// ===== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ =====
+
+/**
+ * Отправляет POST-запрос к OCTO API и возвращает массив с ответом.
+ * При ошибке возвращает null.
+ */
+function octo_request(array $payload): ?array
+{
+    $json = json_encode($payload, JSON_UNESCAPED_UNICODE);
+
+    $ch = curl_init(OCTO_API_URL);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => $json,
+        CURLOPT_HTTPHEADER     => [
+            'Content-Type: application/json',
+            'Accept: application/json',
+            'Content-Length: ' . strlen($json),
+        ],
+        CURLOPT_TIMEOUT        => 30,
+        CURLOPT_SSL_VERIFYPEER => true,
+    ]);
+
+    $body  = curl_exec($ch);
+    $errno = curl_errno($ch);
+    curl_close($ch);
+
+    if ($errno || $body === false) {
+        return null;
+    }
+
+    return json_decode($body, true);
+}
+
+/**
+ * Перенаправляет пользователя на страницу ошибки с сообщением.
+ */
+function redirect_with_error(string $message): never
+{
+    $msg = urlencode($message);
+    header('Location: payment-fail.html?msg=' . $msg);
+    exit;
+}
