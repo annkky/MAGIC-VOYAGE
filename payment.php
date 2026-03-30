@@ -25,20 +25,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // Санитизация и валидация
 $description  = trim(htmlspecialchars($_POST['description']  ?? '', ENT_QUOTES, 'UTF-8'));
 $amount_raw   = $_POST['amount']      ?? '';
-$currency     = strtoupper(trim($_POST['currency']     ?? 'USD'));
+$currency     = 'UZS';
 $client_name  = trim(htmlspecialchars($_POST['client_name']  ?? '', ENT_QUOTES, 'UTF-8'));
 $client_phone = trim(preg_replace('/[^\d+\s\-()]/', '', $_POST['client_phone'] ?? ''));
 
 // Валидация суммы
-$amount = filter_var($amount_raw, FILTER_VALIDATE_FLOAT);
+$amount = filter_var($amount_raw, FILTER_VALIDATE_INT);
 if ($amount === false || $amount <= 0) {
     redirect_with_error('Некорректная сумма платежа.');
-}
-
-// Допустимые валюты
-$allowed_currencies = ['USD', 'UZS', 'RUB'];
-if (!in_array($currency, $allowed_currencies, true)) {
-    redirect_with_error('Недопустимая валюта.');
 }
 
 // Обязательные поля
@@ -62,7 +56,7 @@ $payload = [
     'shop_transaction_id' => $shop_transaction_id,
     'init_time'           => date('Y-m-d H:i:s'),
     'description'         => $description,
-    'total_sum'           => round($amount, 2),
+    'total_sum'           => (int) $amount,
     'currency'            => $currency,
     'auto_capture'        => true,   // одностадийная оплата — списание сразу
     'return_url'          => RETURN_URL,
