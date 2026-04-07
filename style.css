@@ -828,6 +828,145 @@ body.menu-open {
   color: var(--color-text-light);
 }
 
+/* Информация о компании в секции "О нас" */
+.about__company-info {
+  margin-top: 3rem;
+  border-radius: var(--radius-lg, 16px);
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-dark) 100%);
+  overflow: hidden;
+  color: #fff;
+}
+
+.about__company-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.about__company-left {
+  padding: 2.5rem;
+}
+
+.about__company-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  background: rgba(175, 228, 255, 0.12);
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  margin-bottom: 0.75rem;
+}
+
+.about__company-heading {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #fff, var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.about__company-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about__company-list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.about__company-list li:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.about__company-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: rgba(175, 228, 255, 0.7);
+}
+
+.about__company-value {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+.about__license-placeholder {
+  font-style: italic;
+  opacity: 0.5;
+}
+
+.about__company-right {
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.about__company-contact-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.about__company-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.about__company-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1.2rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-sm, 8px);
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.about__company-contact-link:hover {
+  background: rgba(59, 159, 216, 0.2);
+  border-color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+.about__company-contact-link--tg {
+  background: rgba(0, 136, 204, 0.15);
+  border-color: rgba(0, 136, 204, 0.3);
+}
+
+.about__company-contact-link--tg:hover {
+  background: rgba(0, 136, 204, 0.3);
+  border-color: #0088cc;
+}
+
+.about__company-contact-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
 /* ===== SERVICES ===== */
 
 .services__summary {
@@ -1748,6 +1887,33 @@ body.menu-open {
   transform: translateX(4px);
 }
 
+.footer__company-info {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5rem 0;
+}
+
+.footer__company-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem 2rem;
+}
+
+.footer__company-item {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.6;
+}
+
+.footer__company-item strong {
+  color: var(--color-text-white, #fff);
+}
+
+.footer__license-placeholder {
+  font-style: italic;
+  opacity: 0.6;
+}
+
 .footer__bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding: 1.5rem 0;
@@ -1946,6 +2112,32 @@ body.menu-open {
     font-size: 1.1rem;
     bottom: 1rem;
     right: 1rem;
+  }
+
+  /* Реквизиты компании — мобильная адаптация */
+  .about__company-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .about__company-left,
+  .about__company-right {
+    padding: 1.5rem;
+  }
+
+  .about__company-heading {
+    font-size: 1.2rem;
+  }
+
+  .about__company-contact-link {
+    font-size: 0.88rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .footer__company-grid {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.4rem;
   }
 }
 
